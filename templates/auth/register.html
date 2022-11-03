@@ -1,0 +1,54 @@
+{% extends 'base-page.html' %}
+{% load static %}
+{% block title  %}
+    Регистрация | Template
+{% endblock title %}
+{% block container  %}
+<!-- Register In Section Begin -->
+<div class="signin">
+    <div class="signin__warp">
+        <div class="signin__content">
+            <div class="signin__logo">
+                <a href="/"><img src="{% static '/img/siign-in-logo.png' %}" alt=""></a>
+            </div>
+            <p>Для выхода в главное меню нажмите на FoodeiBlog</p>
+            <div class="signin__form">
+                <ul class="nav justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#tabs-1" role="tab" aria-selected="false">
+                            Регистрация
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-pane" id="tabs-1" role="tabpanel">
+                    <div class="signin__form__text">
+                        <p>зарегистрироваться с помощью соцсетей:</p>
+                        <div class="signin__form__signup__social">
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="google"><i class="fa fa-google"></i></a>
+                        </div>
+                        <div class="divide">или</div>
+                        <form method="post" action="{% url 'register' %}">
+                            {% csrf_token %}
+<!--                            {{ user_form }}-->
+                            {% for field in user_form %}
+                            <span style="color: red"> {{ field.errors }}</span>
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% endfor %}
+                            <label for="sign-agree-check">
+                                Я согласен с правилами и условиями
+                                <input type="checkbox" id="sign-agree-check">
+                                <span class="checkmark"></span>
+                            </label>
+                            <button type="submit" class="site-btn">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register In Section End -->
+{% endblock container %}

@@ -1,0 +1,564 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title  %}
+    Магазин ингредиентов | Template
+{% endblock title %}
+
+{% block container  %}
+<!-- Hero Section Begin -->
+<section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 p-0">
+                        <div class="hero__inside__item hero__inside__item--wide set-bg"
+                             data-setbg="{% static '/img/hero/borsch2.jpg' %}">
+                            <div class="hero__inside__item__text">
+                                <div class="hero__inside__item--meta">
+                                    <span>08</span>
+                                    <p>Aug</p>
+                                </div>
+                                <div class="hero__inside__item--text">
+                                    <ul class="label">
+                                        <li>Борщ</li>
+                                        <li>Супы</li>
+                                    </ul>
+                                    <h4>Горячий заправочный суп на основе свёклы, которая придаёт ему характерный
+                                        красный цвет</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6  p-0">
+                        <div class="hero__inside__item hero__inside__item--small set-bg"
+                             data-setbg="{% static '/img/hero/lim.jpg' %}">
+                            <div class="hero__inside__item__text">
+                                <div class="hero__inside__item--meta">
+                                    <span>08</span>
+                                    <p>Aug</p>
+                                </div>
+                                <div class="hero__inside__item--text">
+                                    <ul class="label">
+                                        <li>Лимонад</li>
+                                        <li>Напитки</li>
+                                    </ul>
+                                    <h5>Освежающий напиток</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero__inside__item hero__inside__item--small set-bg"
+                             data-setbg="{% static '/img/hero/juice.jpg' %}">
+                            <div class="hero__inside__item__text">
+                                <div class="hero__inside__item--meta">
+                                    <span>08</span>
+                                    <p>Aug</p>
+                                </div>
+                                <div class="hero__inside__item--text">
+                                    <ul class="label">
+                                        <li>Апельсиновый сок</li>
+                                        <li>Напитки</li>
+                                    </ul>
+                                    <h5>Освежающий сок</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6  p-0">
+                        <div class="hero__inside__item set-bg" data-setbg="{% static '/img/hero/sashl.jpg' %}">
+                            <div class="hero__inside__item__text">
+                                <div class="hero__inside__item--meta">
+                                    <span>08</span>
+                                    <p>Aug</p>
+                                </div>
+                                <div class="hero__inside__item--text">
+                                    <ul class="label">
+                                        <li>Шашлык</li>
+                                        <li>Вторые блюда</li>
+                                    </ul>
+                                    <h5>Блюдо из кусочков мяса, нанизанных на шампур и зажаренных на костре</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 p-0">
+                        <div class="hero__inside__item hero__inside__item--wide set-bg"
+                             data-setbg="{% static '/img/hero/borsch.jpg' %}">
+                            <div class="hero__inside__item__text">
+                                <div class="hero__inside__item--meta">
+                                    <span>08</span>
+                                    <p>Aug</p>
+                                </div>
+                                <div class="hero__inside__item--text">
+                                    <ul class="label">
+                                        <li>Борщ</li>
+                                        <li>Супы</li>
+                                    </ul>
+                                    <h4>Горячий заправочный суп на основе свёклы, которая придаёт ему характерный
+                                        красный цвет</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 p-0">
+                        <div class="hero__inside__item hero__inside__item--small set-bg"
+                             data-setbg="{% static '/img/hero/lim2.jpg' %}">
+                            <div class="hero__inside__item__text">
+                                <div class="hero__inside__item--meta">
+                                    <span>08</span>
+                                    <p>Aug</p>
+                                </div>
+                                <div class="hero__inside__item--text">
+                                    <ul class="label">
+                                        <li>Лимонад</li>
+                                        <li>Напитки</li>
+                                    </ul>
+                                    <h5>Напитки</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero__inside__item hero__inside__item--small set-bg"
+                             data-setbg="{% static '/img/hero/juice2.jpg' %}">
+                            <div class="hero__inside__item__text">
+                                <div class="hero__inside__item--meta">
+                                    <span>08</span>
+                                    <p>Aug</p>
+                                </div>
+                                <div class="hero__inside__item--text">
+                                    <ul class="label">
+                                        <li>Апельсиновый сок</li>
+                                        <li>Напитки</li>
+                                    </ul>
+                                    <h5>Освежающий сок</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 p-0">
+                        <div class="hero__inside__item set-bg" data-setbg="{% static '/img/hero/sashl2.jpg' %}">
+                            <div class="hero__inside__item__text">
+                                <div class="hero__inside__item--meta">
+                                    <span>08</span>
+                                    <p>Aug</p>
+                                </div>
+                                <div class="hero__inside__item--text">
+                                    <ul class="label">
+                                        <li>Шашлык</li>
+                                        <li>Вторые блюда</li>
+                                    </ul>
+                                    <h5>Блюдо из кусочков мяса, нанизанных на шампур и зажаренных на костре</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Categories Section Begin -->
+<section class="categories spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="categories__item set-bg" data-setbg="{% static '/img/categories/categ_1.jpg' %}">
+                    <div class="categories__hover__text">
+                        <h5>Супы</h5>
+                        <p>28 articles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="categories__item set-bg" data-setbg="{% static '/img/categories/categ_2.jpg' %}">
+                    <div class="categories__hover__text">
+                        <h5>Вторые блюда</h5>
+                        <p>28 articles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="categories__item set-bg" data-setbg="{% static '/img/categories/categ_3.jpg' %}">
+                    <div class="categories__hover__text">
+                        <h5>Напитки</h5>
+                        <p>28 articles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="categories__item set-bg" data-setbg="{% static '/img/categories/categ_4.jpg' %}">
+                    <div class="categories__hover__text">
+                        <h5>Закуски</h5>
+                        <p>28 articles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="categories__post">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="categories__post__item categories__post__item--large">
+                        <div class="categories__post__item__pic set-bg"
+                             data-setbg="{% static '/img/categories/categories-post/cpost_1.jpg' %}">
+                            <div class="post__meta">
+                                <h4>08</h4>
+                                <span>Aug</span>
+                            </div>
+                        </div>
+                        <div class="categories__post__item__text">
+                            <ul class="post__label--large">
+                                <li>Коктейль "Тропический"</li>
+                                <li>Напитки</li>
+                            </ul>
+                            <h3><a href="#">То что надо летом</a></h3>
+                            <ul class="post__widget">
+                                <li>by <span>Admin</span></li>
+                                <li>3 min read</li>
+                                <li>20 Comment</li>
+                            </ul>
+                            <p>Молоко - 400 мл<br>
+                                Бананы - 3-4 шт.<br>
+                                Апельсиновый сок - 400 мл<br>
+                                Сахар - 1 ст. л. (по вкусу)<br>
+                                Лед - по вкусу<br>
+                                Всё взбить блендером или миксером. После того, как взбили, добавить кусочки льда и продолжить дальше взбивать до тех пор, пока лёд не станет крошкой.
+                            </p>
+                            <a href="#" class="primary-btn">Другие напитки</a>
+                            <div class="post__social">
+                                <span>Share</span>
+                                <a href="#"><i class="fa fa-facebook"></i> <span>82</span></a>
+                                <a href="#"><i class="fa fa-twitter"></i> <span>24</span></a>
+                                <a href="#"><i class="fa fa-envelope-o"></i> <span>08</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="categories__post__item">
+                                <div class="categories__post__item__pic small__item set-bg"
+                                     data-setbg="{% static '/img/categories/categories-post/cp_2.jpg' %}">
+                                    <div class="post__meta">
+                                        <h4>08</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                </div>
+                                <div class="categories__post__item__text">
+                                    <span class="post__label">Вторые блюда</span>
+                                    <h3><a href="#">Жаркое по-деревенски</a></h3>
+                                    <ul class="post__widget">
+                                        <li>by <span>Admin</span></li>
+                                        <li>3 min read</li>
+                                        <li>20 Comment</li>
+                                    </ul>
+                                    <p>Свиная корейка без кости - 1 кг<br>
+                                        Сало свиное свежее - 50 г<br>
+                                        Масло сливочное - 50 г<br>
+                                        Картофель - 1 кг<br>
+                                        Перец болгарский - 1 шт<br>
+                                        Морковь - 2 шт<br>
+                                        Лук репчатый - 2 шт<br>
+                                        Чеснок - 2 зубчика<br>
+                                        Зелень петрушки свежая - по вкусу<br>
+                                        Зелень петрушки сушёная - по вкусу<br>
+                                        Специи для мяса - по вкусу<br>
+                                        Перец чёрный горошком - по вкусу<br>
+                                        Перец чёрный молотый - по вкусу<br>
+                                        Соль - по вкусу
+                                    </p>
+                                    <a href="#" class="primary-btn">К рецепту</a>
+                                </div>
+                            </div>
+                            <div class="categories__post__item">
+                                <div class="categories__post__item__pic set-bg"
+                                     data-setbg="{% static '/img/categories/categories-post/cp_4.jpg' %}">
+                                    <div class="post__meta">
+                                        <h4>08</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                </div>
+                                <div class="categories__post__item__text">
+                                    <ul class="post__label--large">
+                                        <li>Ватрушки</li>
+                                        <li>Изделия из теста</li>
+                                    </ul>
+                                    <h3><a href="#">Ватрушки – это открытые круглые лепешки с начинкой</a></h3>
+                                    <ul class="post__widget">
+                                        <li>by <span>Admin</span></li>
+                                        <li>3 min read</li>
+                                        <li>20 Comment</li>
+                                    </ul>
+                                    <p>
+                                        Для теста:<br>
+                                        Молоко - 250 мл<br>
+                                        Яйцо - 1 шт<br>
+                                        Масло растительное - 2 ст. ложки (+для смазывания миски)<br>
+                                        Мука пшеничная - 450-500 г (+для работы с тестом)<br>
+                                        ...
+                                    </p>
+                                    <a href="#" class="primary-btn">К рецепту</a>
+                                </div>
+                            </div>
+                            <div class="categories__post__item__plain set-bg"
+                                 data-setbg="{% static '/img/categories/categories-post/cp_6.jpg' %}">
+                                <div class="categories__post__item__text">
+                                    <div class="post__meta">
+                                        <h4>08</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                    <ul class="post__label--large">
+                                        <li>Круассаны</li>
+                                        <li>Изделия из теста</li>
+                                    </ul>
+                                    <h3><a href="#">Вкусные, румяные, хрустящие</a></h3>
+                                    <div class="post__social">
+                                        <span>Share</span>
+                                        <a href="#"><i class="fa fa-facebook"></i> <span>82</span></a>
+                                        <a href="#"><i class="fa fa-twitter"></i> <span>24</span></a>
+                                        <a href="#"><i class="fa fa-envelope-o"></i> <span>08</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="categories__post__item">
+                                <div class="categories__post__item__pic smaller__large set-bg"
+                                     data-setbg="{% static '/img/categories/categories-post/cp_8.jpg' %}">
+                                    <div class="post__meta">
+                                        <h4>08</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                </div>
+                                <div class="categories__post__item__text">
+                                    <span class="post__label">Пицца</span>
+                                    <h3><a href="#">Одно из популярнейших блюд в мире, итальянское национальное блюдо</a></h3>
+                                    <ul class="post__widget">
+                                        <li>by <span>Admin</span></li>
+                                        <li>3 min read</li>
+                                        <li>20 Comment</li>
+                                    </ul>
+                                    <p>
+                                        Для теста:<br>
+                                        Мука - 150 г (1 стакан 250 мл)<br>
+                                        Дрожжи сухие - 3 г<br>
+                                        Вода - 80 мл<br>
+                                        Масло подсолнечное или оливковое - 1 ст. ложка<br>
+                                        ...
+                                    </p>
+                                    <a href="#" class="primary-btn">К рецепту</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="categories__post__item">
+                                <div class="categories__post__item__pic smaller__large set-bg"
+                                     data-setbg="{% static '/img/categories/categories-post/cp_3.jpg' %}">
+                                    <div class="post__meta">
+                                        <h4>08</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                </div>
+                                <div class="categories__post__item__text">
+                                    <span class="post__label">Борщ</span>
+                                    <h3><a href="#">Знаменитый красный борщ любят за особенный аромат, удивительный вкус и насыщенный цвет</a>
+                                    </h3>
+                                    <ul class="post__widget">
+                                        <li>by <span>Admin</span></li>
+                                        <li>3 min read</li>
+                                        <li>20 Comment</li>
+                                    </ul>
+                                    <p>Говядина - 500 г<br>
+                                        Свёкла - 1 шт<br>
+                                        Картофель - 2 шт<br>
+                                        Капуста белокочанная - 200 г<br>
+                                        Морковь - 1 шт<br>
+                                        ...
+                                    </p>
+                                    <a href="#" class="primary-btn">К рецепту</a>
+                                </div>
+                            </div>
+                            <div class="categories__post__item__small">
+                                <img src="{% static '/img/categories/categories-post/quote.png' %}" alt="">
+                                <p>— Поэтому здесь и накрыто к чаю? — спросила Алиса.<br>
+                                    — Да, — отвечал Болванщик со вздохом.<br>
+                                    — Здесь всегда пора пить чай. Мы не успеваем даже посуду вымыть!
+                                </p>
+                                <div class="posted__by">Алиса в Стране чудес</div>
+                            </div>
+                            <div class="categories__post__item">
+                                <div class="categories__post__item__pic smaller__large set-bg"
+                                     data-setbg="{% static 'img/categories/categories-post/cp_5.jpg' %}">
+                                    <div class="post__meta">
+                                        <h4>08</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                </div>
+                                <div class="categories__post__item__text">
+                                    <span class="post__label">Напитки</span>
+                                    <h3><a href="#">Кофе латте по-домашнему</a></h3>
+                                    <ul class="post__widget">
+                                        <li>by <span>Admin</span></li>
+                                        <li>3 min read</li>
+                                        <li>20 Comment</li>
+                                    </ul>
+                                    <p>
+                                        Кофе – 9 зерен<br>
+                                        Вода – 30 мл<br>
+                                        Молоко жирное (3,5%, домашнее) – 150 мл<br>
+                                        Сахар - по вкусу
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="categories__post__item">
+                                <div class="categories__post__item__pic set-bg"
+                                     data-setbg="{% static '/img/categories/categories-post/cp_7.jpg' %}">
+                                    <div class="post__meta">
+                                        <h4>08</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                </div>
+                                <div class="categories__post__item__text">
+                                    <ul class="post__label--large">
+                                        <li>Эклеры</li>
+                                        <li>Изделия из теста</li>
+                                    </ul>
+                                    <h3><a href="#">Вытянутые заварные пирожные, политые сверху чем-то сладким</a></h3>
+                                    <ul class="post__widget">
+                                        <li>by <span>Admin</span></li>
+                                        <li>3 min read</li>
+                                        <li>20 Comment</li>
+                                    </ul>
+                                    <p>Для теста:<br>
+                                        Масло сливочное - 100 г<br>
+                                        Вода - 250 мл<br>
+                                        Мука - 150 г (1 стакан объёмом 250 мл)<br>
+                                        Яйца - 3-4 шт. (у меня ушло чуть больше 3,5 яиц)<br>
+                                        Соль - 0,5 ч. ложки<br>
+                                        Сахар - 1 ч. ложки
+                                        ...
+                                    </p>
+                                    <a href="#" class="primary-btn">К рецепту</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="sidebar__item">
+                        <div class="sidebar__about__item">
+                            <div class="sidebar__item__title">
+                                <h6>О сайте</h6>
+                            </div>
+                            <img src="{% static 'img/sidebar/sidebar-about.jpg' %}" alt="">
+                            <h6>Всем привет! Это сайт для покупки ингредиентов по рецептам.</h6>
+                            <p> Здесь вы можете посмотреть нужные для Вас рецепты и приобрести все необходимые ингредиенты</p>
+                        </div>
+                        <div class="sidebar__feature__item">
+                            <div class="sidebar__item__title">
+                                <h6>Популярные рецепты</h6>
+                            </div>
+                            <div class="sidebar__feature__item__large set-bg"
+                                 data-setbg="{% static '/img/sidebar/feature-post.jpg' %}">
+                            </div>
+                            <div class="sidebar__feature__item__list">
+                                <div class="sidebar__feature__item__list__single">
+                                    <div class="post__meta">
+                                        <h4>08</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                    <div class="post__text">
+                                        <span>Супы</span>
+                                        <h5><a href="#">Суп «Харчо»</a></h5>
+                                    </div>
+                                </div>
+                                <div class="sidebar__feature__item__list__single">
+                                    <div class="post__meta">
+                                        <h4>05</h4>
+                                        <span>Aug</span>
+                                    </div>
+                                    <div class="post__text">
+                                        <span>Вторые блюда</span>
+                                        <h5><a href="#">Жаркое по-деревенски</a></h5>
+                                    </div>
+                                </div>
+                                <div class="sidebar__feature__item__list__single">
+                                    <div class="post__meta">
+                                        <h4>26</h4>
+                                        <span>jul</span>
+                                    </div>
+                                    <div class="post__text">
+                                        <span>Закуски</span>
+                                        <h5><a href="#">Рулетики из лаваша</a></h5>
+                                    </div>
+                                </div>
+                                <div class="sidebar__feature__item__list__single">
+                                    <div class="post__meta">
+                                        <h4>16</h4>
+                                        <span>jul</span>
+                                    </div>
+                                    <div class="post__text">
+                                        <span>Изделия из теста</span>
+                                        <h5><a href="#">Булочки "Вкусняшки"</a></h5>
+                                    </div>
+                                </div>
+                                <div class="sidebar__feature__item__list__single">
+                                    <div class="post__meta">
+                                        <h4>16</h4>
+                                        <span>jul</span>
+                                    </div>
+                                    <div class="post__text">
+                                        <span>Напитки</span>
+                                        <h5><a href="#">Мятное молоко</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar__item__banner">
+                            <img src="{% static 'img/sidebar/banner.jpg' %}" alt="">
+                        </div>
+                        <div class="sidebar__item__categories">
+                            <div class="sidebar__item__title">
+                                <h6>Категории</h6>
+                            </div>
+                            <ul>
+                                <li><a href="#">Рецепты <span>128</span></a></li>
+                                <li class="p-left"><a href="#">Супы <span>25</span></a></li>
+                                <li class="p-left"><a href="#">Вторые блюда <span>25</span></a></li>
+                                <li class="p-left"><a href="#">Закуски <span>25</span></a></li>
+                                <li class="p-left"><a href="#">Изделия из теста <span>25</span></a></li>
+                                <li class="p-left"><a href="#">Напитки <span>25</span></a></li>
+                                <li><a href="#">Покупки <span>32</span></a></li>
+                                <li><a href="#">Войти <span>86</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar__subscribe__item">
+                            <div class="sidebar__item__title">
+                                <h6>Рассылка</h6>
+                            </div>
+                            <p>Подпишитесь на нашу рассылку новостей и получайте наши последние обновления прямо в свой почтовый ящик.</p>
+                            <form action="#">
+                                <input type="text" class="email-input" placeholder="Your email">
+                                <label for="s-agree-check">
+                                    Я согласен с правилами и условиями
+                                    <input type="checkbox" id="s-agree-check">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <button type="submit" class="site-btn">Рассылка</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->
+
+{% endblock container %}
