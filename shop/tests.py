@@ -15,12 +15,34 @@ class TestDataBase(TestCase):
     # проверяем, существует ли пользователь
     def test_user_exists(self):
         users = User.objects.all()
-        users_number = users.coint()
         user = users.first()
-        self.assertEqual(users_number, 1)
-        self.assertEqual(user.name, 'root')
+        self.assertEqual(user.username, 'root')
         self.assertTrue(user.is_superuser)
 
-    # проверяем пароль
+    # проверяем пароль суперпользователя
     def test_user_password(self):
         self.assertTrue(self.user.check_password('123'))
+
+    # проверяем, что во всех таблицах находится больше 1 значения
+    def test_all_date(self):
+        self.assertGreater(Product.objects.all().count(), 0)
+        self.assertGreater(Order.objects.all().count(), 0)
+        self.assertGreater(OrderItem.objects.all().count(), 0)
+        self.assertGreater(Payment.objects.all().count(), 0)
+
+    # подчитываем корзины конкретного пользователя
+    def find_cart_number(self):
+        cart_number = Order.objects.filter(user=self.user,
+                                           status=Order.STATUS_CART
+                                           ).count()
+        return cart_number
+
+    # проверяем количество корзин пользователя
+    def test_functional_get_cart(self):
+        '''
+        1. Нет корзины
+        2. Корзина только что создана
+        3. Проверить, что получена так корзина, которая создана, а не создалась новая
+        =============================================================================
+        Добавим @staticmethod Order.get_cart(user)
+        '''

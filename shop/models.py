@@ -10,10 +10,10 @@ class Product(models.Model):
     image_url = models.URLField(blank=True, null=True)  # ссылка на изображение продукта
     note = models.TextField(blank=True, null=True)  # комментарий к продукту
 
-    class Meta:
+    class Meta:  # все элементы отображаются по дате создания
         ordering = ['pk']
     def __str__(self):
-        return f'{self.name} - {self.price}'
+        return f'name: {self.name}, price: {self.price}'
 
 # таблица Платежи
 class Payment(models.Model):
@@ -25,7 +25,7 @@ class Payment(models.Model):
     class Meta:
         ordering = ['pk']
     def __str__(self):
-        return f'{self.user} - {self.amount}'
+        return f'name: {self.user} , price: {self.amount}'
 
 
 # таблица Заказ + Корзина
@@ -49,12 +49,12 @@ class Order(models.Model):
     class Meta:
         ordering = ['pk']
     def __str__(self):
-        return f'{self.user} - {self.amount} - {self.status}'
+        return f'name: {self.user}, amount: {self.amount}, status: {self.status}'
 
 # каждый элемент заказа
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)  # связь с заказом
-    product = models.ForeignKey(Product, on_delete=models.PROTECT)  # связь с Продуктом
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)  # связь с Продуктом, удалить продукт просто так нельзя
     quantity = models.PositiveIntegerField(default=1)
     price = models.DecimalField(max_digits=20, decimal_places=2)
     discount = models.DecimalField(max_digits=20, decimal_places=2, default=0)  # возможная скидка, по умолчанию 0
@@ -62,4 +62,4 @@ class OrderItem(models.Model):
     class Meta:
         ordering = ['pk']
     def __str__(self):
-        return f'{self.product} - {self.price}'
+        return f'product: {self.product}, price: {self.price}'
