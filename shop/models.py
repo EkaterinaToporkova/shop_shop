@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 # таблица Продукты
+from django.db.models import Sum
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.utils import timezone
@@ -38,6 +39,11 @@ class Payment(models.Model):
 
     def __str__(self):
         return f'name: {self.user} , price: {self.amount}'
+
+    @staticmethod
+    def get_balance(user: User):
+        amount = Payment.objects.filter(user=user).aggregate(Sum('amount'))['amount__sum']
+        return amount or Decimal(0)
 
 
 # таблица Заказ + Корзина
@@ -88,6 +94,20 @@ class Order(models.Model):
             amount += item.amount
         return amount
 
+    def make_order(self):
+        item = self.orderitem_set.all()
+        if item and self.status == Order.STATUS_CART:
+            self.status = Order.STATUS_WAITING_FOR_PAYMENT
+            self.save()
+
+    @staticmethod
+    def get_amount_of_unpaid_orders(user: User):
+        amount = Order.objects.filter(user=user,
+                                      status=Order.STATUS_WAITING_FOR_PAYMENT
+                                      ).aggregate(Sum('amount'))['amount__sum']
+        return amount or Decimal(0)
+
+
 # каждый элемент заказа
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)  # связь с заказом
@@ -107,13 +127,15 @@ class OrderItem(models.Model):
     def amount(self):
         return self.quantity * (self.price - self.discount)
 
-@receiver(post_save, sender=OrderItem) # сигнал, соответствующий сохранению объекта в базе данных
+
+@receiver(post_save, sender=OrderItem)  # сигнал, соответствующий сохранению объекта в базе данных
 def recalculate_order_amount_after_save(sender, instance, **kwargs):
     order = instance.order
     order.amount = order.get_amount()
     order.save()
 
-@receiver(post_delete, sender=OrderItem) # сигнал, соответствующий удалению объекта из базы данных
+
+@receiver(post_delete, sender=OrderItem)  # сигнал, соответствующий удалению объекта из базы данных
 def recalculate_order_amount_after_delete(sender, instance, **kwargs):
     order = instance.order
     order.amount = order.get_amount()
