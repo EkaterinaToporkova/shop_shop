@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 from django.contrib.auth.models import User
-from django.db import models
+from django.db import models, transaction
 
 # таблица Продукты
 from django.db.models import Sum
@@ -99,6 +99,7 @@ class Order(models.Model):
         if item and self.status == Order.STATUS_CART:
             self.status = Order.STATUS_WAITING_FOR_PAYMENT
             self.save()
+            auto_payment_unpaid_orders(self.user)
 
     @staticmethod
     def get_amount_of_unpaid_orders(user: User):
@@ -128,6 +129,20 @@ class OrderItem(models.Model):
         return self.quantity * (self.price - self.discount)
 
 
+@transaction.atomic()
+def auto_payment_unpaid_orders(user: User):  # автоплатеж неоплаченных заказов
+    unpaid_orders = Order.objects.filter(user=user,
+                                         status=Order.STATUS_WAITING_FOR_PAYMENT)
+    for order in unpaid_orders:
+        if Payment.get_balance(user) < order.amount:
+            break
+        order.payment = Payment.objects.all().last()
+        order.status = Order.STATUS_PAID
+        order.save()
+        Payment.objects.create(user=user,
+                               amount=-order.amount)
+
+
 @receiver(post_save, sender=OrderItem)  # сигнал, соответствующий сохранению объекта в базе данных
 def recalculate_order_amount_after_save(sender, instance, **kwargs):
     order = instance.order
@@ -140,3 +155,9 @@ def recalculate_order_amount_after_delete(sender, instance, **kwargs):
     order = instance.order
     order.amount = order.get_amount()
     order.save()
+
+@receiver(post_save, sender=Payment)  # сигнал, соответствующий сохранению объекта в базе данных
+def auto_payment(sender, instance, **kwargs):
+    user = instance.user
+    auto_payment_unpaid_orders(user)
+

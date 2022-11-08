@@ -203,3 +203,36 @@ class TestDataBase(TestCase):
         cart.make_order()
         self.assertEqual(Payment.get_balance(self.user), Decimal(0))
 
+    def test_auto_payment_after_add_required_payment(self):
+        """Изменение при добавлении платежей
+        После применения оплаты:
+        1. заказа должен поменять статус
+        2. И баланс должен быть равен нулю
+        """
+        Payment.objects.create(user=self.user, amount=0)
+        self.assertEqual(Payment.get_balance(self.user), Decimal(0))
+        amount = Order.get_amount_of_unpaid_orders(self.user)
+        self.assertEqual(amount, Decimal(0))
+
+    def test_auto_payment_after_add_earlier_payment(self):
+        """Баланс и заказ уже существуют, но создается новый заказ.
+        1. Более ранний заказ должен изменить статус
+        2. Баланс должен уменьшится
+        """
+        cart = Order.get_cart(self.user)
+        OrderItem.objects.create(order=cart, product=self.p, price=2, quantity=100)
+        Payment.objects.create(user=self.user, amount=200)
+        self.assertEqual(Payment.get_balance(self.user), Decimal(200))
+        amount = Order.get_amount_of_unpaid_orders(self.user)
+        self.assertEqual(amount, Decimal(0))
+
+    def test__auto_payment_for_all_orders(self):
+        """Есть неоплаченные заказы
+        """
+        cart = Order.get_cart(self.user)
+        OrderItem.objects.create(order=cart, product=self.p, price=2, quantity=100)
+        Payment.objects.create(user=self.user, amount=300)
+        self.assertEqual(Payment.get_balance(self.user), Decimal(300))
+        amount = Order.get_amount_of_unpaid_orders(self.user)
+        self.assertEqual(amount, Decimal(0))
+
