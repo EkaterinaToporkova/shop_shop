@@ -40,14 +40,16 @@
         <ul>
             <li><a href="/">Главная</a></li>
             <li><a href="#">Рецепты</a></li>
-            <li class="dropdown"><a>Вход/выход</a>
+            <li><a href="{% url 'about' %}">О нас</a></li>
+            <li><a href="./contact.html">Контакты</a></li>
+            <li><a href="#">Корзина</a></li>
+            <li class="dropdown"><a><img src="{% static '/img/login.png' %}"></a>
                 <ul class="dropdown__menu">
                     <li><a href="{% url 'signin' %}">Вход</a></li>
                     <li><a href="{% url 'register' %}">Регистрация</a></li>
                     <li><a href="{% url 'logout' %}">Выход</a></li>
                 </ul>
-            <li><a href="{% url 'about' %}">О нас</a></li>
-            <li><a href="./contact.html">Контакты</a></li>
+
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -152,15 +154,15 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li><a href="{% url 'about' %}">О нас</a></li>
                             <li><a href="./contact.html">Контакты</a></li>
+                            <li><a href="#">Корзина</a></li>
                             <li class="dropdown">
                                 <a>
                                     {% if user.is_authenticated%}
                                     {{user.username}}
                                     {% else %}
-                                    Вход/выход
+                                     <img src="{% static '/img/login.png' %}">
                                     {% endif %}
                                 </a>
                                 <ul class="dropdown__menu">
