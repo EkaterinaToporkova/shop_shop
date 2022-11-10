@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{% static '/css/owl.carousel.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static '/css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static '/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/cart_style.css' %}" type="text/css">
+
 </head>
 
 <body>
@@ -42,7 +44,8 @@
             <li><a href="#">Рецепты</a></li>
             <li><a href="{% url 'about' %}">О нас</a></li>
             <li><a href="./contact.html">Контакты</a></li>
-            <li><a href="#">Корзина</a></li>
+            <li><a href="{% url 'shop' %}">Продукты</a></li>
+            <li><a href="{% url 'cart_view' %}">Корзина</a></li>
             <li class="dropdown"><a><img src="{% static '/img/login.png' %}"></a>
                 <ul class="dropdown__menu">
                     <li><a href="{% url 'signin' %}">Вход</a></li>
@@ -92,7 +95,7 @@
                 </div>
                 <div class="col-lg-8 col-md-10 order-md-2 order-3">
                     <nav class="header__menu">
-                        <ul>
+                        <ul style="width: 850px;">
                             <li><a href="/">Главная страница</a></li>
                             <li><a href="#">Рецепты</a>
                                 <div class="header__megamenu__wrapper">
@@ -156,13 +159,14 @@
                             </li>
                             <li><a href="{% url 'about' %}">О нас</a></li>
                             <li><a href="./contact.html">Контакты</a></li>
-                            <li><a href="#">Корзина</a></li>
+                            <li><a href="{% url 'shop' %}">Продукты</a></li>
+                            <li><a href="{% url 'cart_view' %}">Корзина</a></li>
                             <li class="dropdown">
                                 <a>
                                     {% if user.is_authenticated%}
-                                    {{user.username}}
+                                    <img src="{% static '/img/login.png' %}">
                                     {% else %}
-                                     <img src="{% static '/img/login.png' %}">
+                                    Вход/Регистрация
                                     {% endif %}
                                 </a>
                                 <ul class="dropdown__menu">
