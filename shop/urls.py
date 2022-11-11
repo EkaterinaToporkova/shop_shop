@@ -16,9 +16,10 @@ Including another URLconf
 
 from django.urls import path
 from django.views.generic import TemplateView
+from shop import views
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='shop/shop.html'), name='shop'),
+    path('', views.ProductsListView.as_view(), name='shop'),
     path('cart_view/', TemplateView.as_view(template_name='shop/cart.html'), name='cart_view'),
-    path('detail/<int:id>/', TemplateView.as_view(template_name='shop/'), name='cart_view'),
+    path('detail/<int:id>/', TemplateView.as_view(template_name='shop/shop-details.html'), name='shop-details'),
 ]

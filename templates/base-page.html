@@ -162,7 +162,7 @@
                             <li><a href="{% url 'shop' %}">Продукты</a></li>
                             <li><a href="{% url 'cart_view' %}">Корзина</a></li>
                             <li class="dropdown">
-                                <a>
+                                <a class="login_button">
                                     {% if user.is_authenticated%}
                                     <img src="{% static '/img/login.png' %}">
                                     {% else %}
@@ -191,20 +191,6 @@
             <div class="col-lg-3 col-md-3">
                 <div class="header__btn">
                     <a href="./signin.html" class="primary-btn">Рассылка</a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="header__logo">
-                    <a href="./index.html"><img src="{% static '/img/logo.png' %}" alt=""></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3">
-                <div class="header__social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-youtube-play"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-envelope-o"></i></a>
                 </div>
             </div>
         </div>
