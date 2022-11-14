@@ -3,20 +3,20 @@ from decimal import Decimal
 from django.contrib.auth.models import User
 from django.db import models, transaction
 
-# таблица Продукты
+
 from django.db.models import Sum
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.utils import timezone
 
-
+# таблица Продукты
 class Product(models.Model):
     name = models.CharField(max_length=255, verbose_name='product_name')
     code = models.CharField(max_length=255,
                             verbose_name='product_code')  # по этому полю различаем продукт (код продукта)
     price = models.DecimalField(max_digits=20, decimal_places=2)
     unit = models.CharField(max_length=255, blank=True, null=True)  # единица измерения
-    image_url = models.URLField(blank=True, null=True)  # ссылка на изображение продукта
+    image_url = models.ImageField(upload_to='img_product')  # путь на изображение продукта
     note = models.TextField(blank=True, null=True)  # комментарий к продукту
 
     class Meta:  # все элементы отображаются по дате создания
@@ -87,6 +87,7 @@ class Order(models.Model):
                                         amount=0
                                         )
         return cart
+
 
     def get_amount(self):
         amount = Decimal(0)
