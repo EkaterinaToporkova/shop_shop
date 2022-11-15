@@ -2,11 +2,101 @@
 {% load static %}
 
 {% block title  %}
-Корзина
+{{ product.name }}
 {% endblock title %}
 
 {% block container  %}
+<link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}" type="text/css">
+<div class="page-heading products-heading header-text">
+    <section class="categories spad">
+        <div class="categories__post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-16">
+                                <div class="categories__post__item">
+                                    <img src="{{ product.image_url.url }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="sidebar__item">
+                            <div class="sidebar__about__item">
+                                <div class="sidebar__item__title">
+                                    <h6>{{ product.name }}</h6>
+                                    <p><h4 style="color: #fd7e14">{{ product.price }} р./{{ product.unit }}</h4></p>
+                                </div>
+                                <h5>{{ product.note }}</h5>
+                            </div>
+                            <div class="sidebar__item__title">
+                                <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
+                                    {% csrf_token %}
+                                    <div class="categories__post__item__text">
+                                        <h5><label class="form-label" for="id_quantity">Количество:</label>
+                                            <input type="number" name="quantity" value="1" min="1" required
+                                                   id="id_quantity" style="width: 2em">
+                                        </h5>
+                                    </div>
+                                    <button type="submit" class="site-btn">В корзину</button>
+                                </form>
+                            </div>
+                            <div class="sidebar__item__title">
+                                <form action="{% url 'shop' %}">
+                                    <button type="submit" class="site-btn">Назад</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
-------------------------------<h>В разработке</h>------------------------
 
+
+
+
+
+
+
+
+<!--<link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}" type="text/css">-->
+<!--<div class="page-heading products-heading header-text">-->
+<!--    <div class="products">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-12">-->
+<!--                    <div class="filters-content">-->
+<!--                        <div class="row grid">-->
+<!--                            &lt;!&ndash; Block Section Begin &ndash;&gt;-->
+<!--                            <div class="col-lg-4 col-md-4 all des">-->
+<!--                                <div class="product-item">-->
+<!--                                    <a href="{% url 'detail' product.pk %}"><img src="{{ product.image_url.url }}" alt=""></a>-->
+<!--                                    <div class="down-content">-->
+<!--                                        <a href="{% url 'detail' product.pk %}"><h4>{{ product.name }}</h4></a>-->
+<!--                                        <h4 style="color: black">{{ product.price }} р./{{ product.unit }}</h4>-->
+<!--                                        {% csrf_token %}-->
+<!--                                        <h4><label class="form-label" for="id_quantity">Количество:</label>-->
+<!--                                            <input type="number" name="quantity" value="1" min="1" required-->
+<!--                                                                       id="id_quantity" style="width: 2em">-->
+<!--                                        </h4>-->
+<!--                                    </div>-->
+<!--                                    <div class="sidebar__item__title">-->
+<!--                                        <form action="#">-->
+<!--                                            <button type="submit" class="site-btn">В корзину</button>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash;Block Section End &ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 {% endblock container  %}
