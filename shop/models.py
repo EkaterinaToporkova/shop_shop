@@ -3,11 +3,11 @@ from decimal import Decimal
 from django.contrib.auth.models import User
 from django.db import models, transaction
 
-
 from django.db.models import Sum
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.utils import timezone
+
 
 # таблица Продукты
 class Product(models.Model):
@@ -23,7 +23,20 @@ class Product(models.Model):
         ordering = ['pk']
 
     def __str__(self):
-        return f'name: {self.name}, price: {self.price}'
+        return f'name: {self.name}, price: {self.price},  image_url: {self. image_url}'
+
+
+
+class Product_image(models.Model):
+    image = models.ImageField(upload_to='img_product')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_images')
+
+    def __str__(self):
+        return f'{self.product.name} image'
+
+# @property
+# def sorted_image_set(self):
+#     return self.product_images.order_by('time_created')
 
 
 # таблица Платежи
@@ -87,7 +100,6 @@ class Order(models.Model):
                                         amount=0
                                         )
         return cart
-
 
     def get_amount(self):
         amount = Decimal(0)
@@ -157,8 +169,8 @@ def recalculate_order_amount_after_delete(sender, instance, **kwargs):
     order.amount = order.get_amount()
     order.save()
 
+
 @receiver(post_save, sender=Payment)  # сигнал, соответствующий сохранению объекта в базе данных
 def auto_payment(sender, instance, **kwargs):
     user = instance.user
     auto_payment_unpaid_orders(user)
-

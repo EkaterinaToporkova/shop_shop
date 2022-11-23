@@ -1,282 +1,237 @@
 {% load static%}
+
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Foodeiblog Template">
-    <meta name="keywords" content="Foodeiblog, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Магазин ингредиентов | Template{% endblock title %}</title>
+    <title> Магазин ингредиентов </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900&display=swap"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Unna:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static '/css/font-awesome.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static '/css/elegant-icons.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static '/css/owl.carousel.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static '/css/slicknav.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static '/css/style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static '/css/cart_style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static '/css/fontawesome.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static '/css/owl.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static '/css/jquery.timepicker.css' %}">
 
 
+    <link rel="stylesheet" href="{% static '/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static '/css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
 
 <body>
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
-
-<!-- Humberger Begin -->
-<div class="humberger__menu__overlay"></div>
-<div class="humberger__menu__wrapper">
-    <div class="humberger__menu__logo">
-        <a href="/"><img src="{% static '/img/humberger/humberger-logo.png' %}" alt=""></a>
-    </div>
-    <nav class="humberger__menu__nav mobile-menu">
-        <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="#">Рецепты</a></li>
-            <li><a href="{% url 'about' %}">О нас</a></li>
-            <li><a href="./contact.html">Контакты</a></li>
-            <li><a href="{% url 'shop' %}">Продукты</a></li>
-            <li><a href="{% url 'cart_view' %}">Корзина</a></li>
-            <li class="dropdown"><a><img src="{% static '/img/login.png' %}"></a>
-                <ul class="dropdown__menu">
-                    <li><a href="{% url 'signin' %}">Вход</a></li>
-                    <li><a href="{% url 'register' %}">Регистрация</a></li>
-                    <li><a href="{% url 'logout' %}">Выход</a></li>
-                </ul>
-
-        </ul>
-    </nav>
-    <div id="mobile-menu-wrap"></div>
-    <div class="humberger__menu__about">
-        <div class="humberger__menu__about__social sidebar__item__follow__links">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-envelope-o"></i></a>
-        </div>
-    </div>
-    <div class="humberger__menu__subscribe">
-        <div class="humberger__menu__title sidebar__item__title">
-            <h6>Рассылка</h6>
-        </div>
-        <p>Подпишитесь на нашу рассылку новостей и получайте наши последние обновления прямо в свой почтовый ящик.</p>
-        <form action="#">
-            <input type="text" class="email-input" placeholder="Your email">
-            <label for="agree-check">
-                I agree to the terms & conditions
-                <input type="checkbox" id="agree-check">
-                <span class="checkmark"></span>
-            </label>
-            <button type="submit" class="site-btn">Рассылка</button>
-        </form>
-    </div>
-</div>
-<!-- Humberger End -->
-
-<!-- Header Section Begin -->
-<header class="header">
-    <div class="header__top">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-1 col-6 order-md-1 order-1">
-                    <div class="header__humberger">
-                        <i class="fa fa-bars humberger__open"></i>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-10 order-md-2 order-3">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="/">Главная страница</a></li>
-                            <li><a href="#">Рецепты</a>
-                                <div class="header__megamenu__wrapper">
-                                    <div class="header__megamenu">
-                                        <div class="header__megamenu__item">
-                                            <div class="header__megamenu__item--pic set-bg"
-                                                 data-setbg="{% static '/img/megamenu/soup.jpg' %}">
-                                                <div class="label">Супы</div>
-                                            </div>
-                                            <div class="header__megamenu__item--text">
-                                                <h5><a href="#">Жидкие блюда на основе воды, приготовляемые методом
-                                                    варки</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div class="header__megamenu__item">
-                                            <div class="header__megamenu__item--pic set-bg"
-                                                 data-setbg="{% static 'img/megamenu/second.jpg' %}">
-                                                <div class="label">Вторые блюда</div>
-                                            </div>
-                                            <div class="header__megamenu__item--text">
-                                                <h5><a href="#">Вкусные рецепты вторых блюд на скорую руку или для
-                                                    праздничного стола бесконечно разнообразны</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div class="header__megamenu__item">
-                                            <div class="header__megamenu__item--pic set-bg"
-                                                 data-setbg="{% static '/img/megamenu/zak.jpg' %}">
-                                                <div class="label">Закуски</div>
-                                            </div>
-                                            <div class="header__megamenu__item--text">
-                                                <h5><a href="#">Закуски – тип блюд, которые подаются на стол перед
-                                                    основными блюдами</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div class="header__megamenu__item">
-                                            <div class="header__megamenu__item--pic set-bg"
-                                                 data-setbg="{% static '/img/megamenu/testo.jpg' %}">
-                                                <div class="label">Изделия из теста</div>
-                                            </div>
-                                            <div class="header__megamenu__item--text">
-                                                <h5><a href="#">Пироги и печенья, блины, пончики, вареники и, конечно,
-                                                    хлеб</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div class="header__megamenu__item">
-                                            <div class="header__megamenu__item--pic set-bg"
-                                                 data-setbg="{% static '/img/megamenu/drinks.jpg' %}">
-                                                <div class="label">Напитки</div>
-                                            </div>
-                                            <div class="header__megamenu__item--text">
-                                                <h5><a href="#">Вкусные и натуральные напитки</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a href="{% url 'about' %}">О нас</a></li>
-                            <li><a href="./contact.html">Контакты</a></li>
-                            <li><a href="{% url 'shop' %}">Продукты</a></li>
-                            <li><a href="{% url 'cart_view' %}">Корзина</a></li>
-                            <li class="dropdown">
-                                <a class="login_button">
-                                    {% if user.is_authenticated%}
-                                    <img src="{% static '/img/login.png' %}">
-                                    {% else %}
-                                    Вход/Регистрация
-                                    {% endif %}
-                                </a>
-                                <ul class="dropdown__menu">
-                                    <li><a href="{% url 'signin' %}">Вход</a></li>
-                                    <li><a href="{% url 'register' %}">Регистрация</a></li>
-                                    <li><a href="{% url 'logout' %}">Выход</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-2 col-md-1 col-6 order-md-3 order-2">
-                    <div class="header__search">
-                        <i class="fa fa-search search-switch"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- Header Section End -->
-{% block container %}
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+          </button>
 
-{% endblock container %}
+          <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown04">
+                    <a class="dropdown-item" href="{% url 'shop' %}">Shop</a>
+                    <a class="dropdown-item" href="{% url 'cart_view' %}">Cart</a>
+                    <a class="dropdown-item" href="#">Checkout</a>
+                  </div>
+              </li>
+              <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {% if user.is_authenticated %}
+                          <img src="{% static '/img/login.png' %}">
+                      {% else %}
+                          Sign ...
+                      {% endif %}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown04">
+                    <a class="dropdown-item" href="{% url 'signin' %}">Sign in</a>
+                    <a class="dropdown-item" href="{% url 'register' %}">Sign up</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Sign out</a>
+                  </div>
+              </li>
+              <li class="nav-item cta cta-colored"><a href="{% url 'cart_view' %}" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
-<!-- Footer Section Begin -->
-<footer class="footer">
-    <div class="container-fluid">
-        <div class="footer__instagram">
-            <div class="row">
-                <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                    <div class="footer__instagram__item set-bg" data-setbg="{% static '/img/footer/ip-1.jpg' %}"></div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                    <div class="footer__instagram__item set-bg" data-setbg="{% static '/img/footer/ip-2.jpg' %}"></div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                    <div class="footer__instagram__item set-bg" data-setbg="{% static '/img/footer/ip-3.jpg' %}"></div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                    <div class="footer__instagram__item set-bg" data-setbg="{% static 'img/footer/ip-4.jpg' %}"></div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                    <div class="footer__instagram__item set-bg" data-setbg="{% static 'img/footer/ip-5.jpg' %}"></div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-                    <div class="footer__instagram__item set-bg" data-setbg="{% static 'img/footer/ip-6.jpg' %}"></div>
-                </div>
-            </div>
+            </ul>
+          </div>
         </div>
-    </div>
-    <div class="container">
+      </nav>
+    <!-- END nav -->
+    {% block container %}
+
+    {% endblock container %}
+
+
+
+    <section class="ftco-section bg-light ftco-services">
+    	<div class="container">
+    		<div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big">Services</h1>
+            <h2>Наши условия</h2>
+          </div>
+        </div>
         <div class="row">
-            <div class="col-lg-12">
-                <div class="footer__text">
-                    <div class="footer__logo">
-                        <a href="#"><img src="{% static '/img/logo.png' %}" alt=""></a>
-                    </div>
-                    <p>— Готовить — это же так просто! Главное следовать рецепту. Написано положить две чашки соли —
-                        кладешь две чашки соли!<br>
-                        Сериал "Друзья"
-                    </p>
-                    <div class="footer__social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        <a href="#"><i class="fa fa-envelope-o"></i></a>
-                    </div>
-                </div>
-                <div class="footer__copyright">
-                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i>
-                        by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
+          <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-4">
+            		<span class="flaticon-002-recommended"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Возврат денежных средств</h3>
+              </div>
             </div>
+          </div>
+          <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-4">
+            		<span class="flaticon-001-box"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Упаковка премиум класса</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-4">
+            		<span class="flaticon-003-medal"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Превосходное качество</h3>
+
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</footer>
-<!-- Footer Section End -->
+    	</div>
+    </section>
 
-<!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search End -->
+	<section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+            	<h1 class="big">Подписка</h1>
+              <h2>Подпишитесь на нашу рассылку</h2>
+              <div class="row d-flex justify-content-center mt-5">
+                <div class="col-md-8">
+                  <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control" placeholder="Enter email address">
+                      <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Js Plugins -->
-<script src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static '/js/bootstrap.min.js' %}"></script>
-<script src="{% static '/js/jquery.slicknav.js' %}"></script>
-<script src="{% static '/js/owl.carousel.min.js' %}"></script>
-<script src="{% static '/js/main.js' %}"></script>
-<script src="{% static '/js/custom.js' %}"></script>
-<script src="{% static '/js/owl.js' %}"></script>
-<script src="{% static '/js/slick.js' %}"></script>
-<script src="{% static '/js/isotope.js' %}"></script>
-<script src="{% static '/js/accordions.js' %}"></script>
-<script src="{% static '/js/jquery.min.js' %}"></script>
-<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+    <footer class="ftco-footer bg-light ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Рецепты</h2>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Menu</h2>
+              <ul class="list-unstyled">
+                    <li><a href="{% url 'index' %}" class="py-2 d-block">Home</a></li>
+                    <li><a href="{% url 'shop' %}" class="py-2 d-block">Shop</a></li>
+                    <li><a href="{% url 'about' %}" class="py-2 d-block">About</a></li>
+                    <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Help</h2>
+              <div class="d-flex">
+	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+	                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+	                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+	                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+	                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+	              </ul>
+	              <ul class="list-unstyled">
+	                <li><a href="#" class="py-2 d-block">FAQs</a></li>
+	                <li><a href="#" class="py-2 d-block">Contact</a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Остались вопросы?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static '/js/jquery.min.js' %}"></script>
+  <script src="{% static '/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static '/js/popper.min.js' %}"></script>
+  <script src="{% static '/js/bootstrap.min.js' %}"></script>
+  <script src="{% static '/js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static '/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static '/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static '/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static '/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static '/js/aos.js' %}"></script>
+  <script src="{% static '/js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static '/js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static '/js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static '/js/google-map.js' %}"></script>
+  <script src="{% static '/js/main.js' %}"></script>
+
+
 
 </body>
 

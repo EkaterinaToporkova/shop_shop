@@ -7,6 +7,80 @@
 
 {% block container  %}
 
+<div class="hero-wrap hero-bread" style="background-image: url('{% static 'img/bg-66.jpg' %}');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-0 bread">Продукты</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Product</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	<section class="ftco-section bg-light">
+    	<div class="container-fluid">
+    		<div class="row">
+                {% for product in object_list %}
+    			<div class="col-sm col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="#" class="img-prod"><img class="img-fluid" src="{{ product.image_url.url }}" alt="Colorlib Template">
+    					</a>
+    					<div class="text py-3 px-3">
+    						<h3><a href="#">{{ product.name }}</a></h3>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span class="price-sale">{{ product.price }} р./{{ product.unit }}</span></p>
+		    					</div>
+                                <div class="quantity">
+                                    <div class="input-group mb-3">
+                                        <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
+                                            {% csrf_token %}
+                                            <h6><label class="form-label" for="id_quantity">Количество:</label>
+                                            <input type="number" name="quantity" value="1" min="1" required
+                                                   id="id_quantity" style="width: 2em">
+                                            </h6>
+                                            <button type="submit">
+    							                <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+    						                </button>
+                                        </form>
+                                    </div>
+                                </div>
+	    					</div>
+    					</div>
+    				</div>
+    			</div>
+                {% endfor %}
+    		</div>
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+{% endblock container %}
+
+
+
+
+
+
+
+
+
+
 <link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}" type="text/css">
 <div class="page-heading products-heading header-text">
     <div class="products">
@@ -34,16 +108,6 @@
                                                 </h5>
                                              </div>
                                             <button type="submit" class="site-btn">В корзину</button>
-
-
-<!--                                            {% csrf_token %}-->
-<!--                                            <div class="down-content">-->
-<!--                                                <h4><label class="form-label" for="id_quantity">Количество:</label>-->
-<!--                                                <input type="number" name="quantity" value="1" min="1" required-->
-<!--                                                       id="id_quantity" style="width: 2em">-->
-<!--                                                </h4>-->
-<!--                                            </div>-->
-<!--                                            <button type="submit" class="site-btn">В корзину</button>-->
                                         </form>
                                     </div>
                                 </div>
@@ -96,5 +160,3 @@
 
 
 </script>
-
-{% endblock container %}
