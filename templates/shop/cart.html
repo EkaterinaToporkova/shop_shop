@@ -8,6 +8,16 @@
 {% block container  %}
 
 
+<div class="hero-wrap hero-bread" style="background-image: url('{% static 'img/bg-66.jpg' %}');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Корзина</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Главная</a></span> <span>Корзина</span></p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <section class="ftco-section ftco-cart">
     <div class="container">
@@ -19,35 +29,34 @@
                         <tr class="text-center">
                             <th>&nbsp;</th>
                             <th>&nbsp;</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
+                            <th>Продукты</th>
+                            <th>Цена</th>
+                            <th>Количество</th>
+                            <th>Итого</th>
                         </tr>
                         </thead>
+                        <tbody>
                         {% for item in items %}
+                        <tr class="text-center">
+                            <form method="post" action="{% url 'cart_delete_item' item.pk %}">
+                                {% csrf_token %}
+                                <td class="product-remove"><a href="{% url 'cart_delete_item' item.pk %}"><span class="ion-ios-close"></span></a></td>
+                            </form>
+                            <td class="image-prod">
+                                <div class="img" style="background-image:url('{{ item.product.image_url.url }}');"></div>
+                            </td>
 
-                                <tbody>
-                                    <tr class="text-center">
-                                        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-                                        <td class="image-prod">
-                                            <img src="{{ item.product.image_url.url }}">
-                                        </td>
-                                        <td class="product-name">
-                                            <h3>{{ item.product.name }}</h3>
-                                            <p>Far far away, behind the word mountains, far from the countries</p>
-                                        </td>
+                            <td class="product-name">
+                                <h3>{{ item.product.name }}</h3>
+                            </td>
 
-                                        <td class="price">{{ item.price }}</td>
+                            <td class="price">{{ item.price }} руб.</td>
 
-                                        <td class="quantity">
-                                            {{ item.quantity }}
-                                        </td>
-                                        <td class="total">{{ item.amount }}</td>
-                                    </tr><!-- END TR-->
-                                </tbody>
-
+                            <td class="price">{{ item.quantity }}</td>
+                            <td class="total">{{ item.amount }} руб.</td>
+                        </tr><!-- END TR-->
                         {% endfor %}
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -55,7 +64,7 @@
         <div class="row justify-content-end">
             <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Cart Totals</h3>
+                    <h3>Итого</h3>
                     <p class="d-flex">
                         <span>Subtotal</span>
                         <span>$20.60</span>
@@ -71,14 +80,16 @@
                     <hr>
                     <p class="d-flex total-price">
                         <span>Total</span>
-                        <span>$17.60</span>
+                        <span>{{ cart.amount}}</span>
                     </p>
                 </div>
-                <p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a>
+                <p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Оплатить</a>
                 </p>
             </div>
         </div>
     </div>
 </section>
 
+
 {% endblock container  %}
+

@@ -31,7 +31,6 @@
                         <div class="divide">или</div>
                         <form method="post" action="{% url 'register' %}">
                             {% csrf_token %}
-<!--                            {{ user_form }}-->
                             {% for field in user_form %}
                             <span style="color: red"> {{ field.errors }}</span>
                             {{ field.label_tag }}

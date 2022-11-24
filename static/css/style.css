@@ -6528,7 +6528,7 @@ button.bg-dark:focus {
     margin-bottom: 0 !important; }
   .ml-md-0,
   .mx-md-0 {
-    margin-left: 0 !important; }
+    margin-left: 0 !important;}
   .m-md-1 {
     margin: 0.25rem !important; }
   .mt-md-1,
@@ -8044,8 +8044,8 @@ h1, h2, h3, h4, h5,
       width: 20%; }
     .table tbody tr td.image-prod .img {
       display: block;
-      width: 100px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       margin: 0 auto; }
     .table tbody tr td.product-name {
       width: 30%; }

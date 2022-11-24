@@ -2,11 +2,12 @@ from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 
 from shop.forms import AddQuantityForm
-from shop.models import Product, Order, Product_image
+from shop.models import Product, Order, Product_image, OrderItem
 
 
 class ProductsListView(ListView):
@@ -19,7 +20,7 @@ class ProductsDetailView(DetailView):
 
 
 
-@login_required(login_url=reverse_lazy('login'))  # работу функции add_item_to_cart() может вызвать только залогиненный пользователь
+@login_required(login_url=reverse_lazy('register'))  # работу функции add_item_to_cart() может вызвать только залогиненный пользователь
 def add_item_to_cart(request, pk):
     if request.method == 'POST':
         quantity_form = AddQuantityForm(request.POST)
@@ -33,12 +34,12 @@ def add_item_to_cart(request, pk):
                                           quantity=quantity,
                                           price=product.price)
                 cart.save()
-                return redirect('cart_view')
+                # return redirect('cart_view')
         else:
             pass
     return redirect('shop')
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('register'))
 def cart_view(request):
     cart = Order.get_cart(request.user)
     items = cart.orderitem_set.all()
@@ -53,3 +54,14 @@ def home_page(request):
     images = Product_image.objects.all()
     context = {'products':products, 'images':images}
     return render(request, 'product/home.html', context)
+
+@method_decorator(login_required, name='dispatch')  # работу класса CartDeleteIem может вызвать только залогиненный пользователь
+class CartDeleteIem(DeleteView):
+    model = OrderItem
+    template_name = 'shop/cart.html'
+    success_url = reverse_lazy('cart_view')
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        qs.filter(order__user=self.request.user)
+        return qs
