@@ -12,7 +12,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <h1 class="mb-0 bread">Продукты</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Product</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Главная</a></span> <span>Продукты</span></p>
             </div>
         </div>
     </div>
@@ -28,26 +28,27 @@
                                                       alt="Colorlib Template">
                     </a>
                     <div class="text py-3 px-3">
-                        <h3><a href="{% url 'detail' product.pk %}">{{ product.name }}</a></h3>
+                        <h3 style="font-family:'Lato', Arial, sans-serif"><a href="{% url 'detail' product.pk %} ">{{ product.name }}</a></h3>
                         <div class="d-flex">
                             <div class="pricing">
-                                <p class="price"><span
-                                        class="price-sale">{{ product.price }} р./{{ product.unit }}</span></p>
+                                <p class="price">
+                                    <span class="price-sale">{{ product.price }} р./{{ product.unit }}</span></p>
                             </div>
-                            <div class="quantity">
-                                <div class="input-group mb-3">
-                                    <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
-                                        {% csrf_token %}
-                                        <h6><label class="form-label" for="id_quantity">Количество:</label>
-                                            <input type="number" name="quantity" value="1" min="1" required
-                                                   id="id_quantity" style="width: 2em">
-                                        </h6>
-                                        <button type="submit">
-                                            <a href="#" class="add-to-cart"><span>Add to cart <i
-                                                    class="ion-ios-add ml-1"></i></span></a>
-                                        </button>
-                                    </form>
-                                </div>
+                        </div>
+                        <hr>
+                        <div class="quantity">
+                            <div class="input-group mb-3">
+                                <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
+                                    {% csrf_token %}
+                                    <h6 style="font-family:'Lato', Arial, sans-serif"><label class="form-label" for="id_quantity">Количество:</label>
+                                        <input type="number" name="quantity" value="1" min="1" required
+                                               id="id_quantity" style="width: 3em">
+                                    </h6>
+                                    <button type="submit">
+                                        <a href="#" class="add-to-cart"><span>Add to cart <i
+                                                class="ion-ios-add ml-1"></i></span></a>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>

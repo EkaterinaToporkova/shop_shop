@@ -140,7 +140,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #78d5ef;
+  color: black;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects; }
@@ -211,7 +211,7 @@ optgroup,
 textarea {
   margin: 0;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 13px;
   line-height: inherit; }
 
 button,
@@ -220,13 +220,16 @@ input {
 
 button,
 select {
-  text-transform: none; }
+  text-transform: uppercase;
+  font-weight: 300;}
 
 button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button; }
+  -webkit-appearance: button;
+  Border: None;
+  }
 
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -7274,7 +7277,7 @@ body {
   font-size: 15px;
   line-height: 1.8;
   font-weight: 400;
-  color: gray; }
+  color: black; }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -7285,7 +7288,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #f1b8c4; }
+  }
   a:hover {
     text-decoration: none;
     color: #f1b8c4; }
@@ -7977,9 +7980,7 @@ h1, h2, h3, h4, h5,
   padding: 16px 20px; }
 
 .ftco-cart button, .ftco-cart .form-control {
-  height: 54px !important;
   text-align: center;
-  bordeR: 1px solid rgba(0, 0, 0, 0.05) !important;
   color: #000000 !important;
   padding: 0;
   font-size: 14px; }
@@ -8010,8 +8011,6 @@ h1, h2, h3, h4, h5,
       -moz-appearance: none;
       appearance: none; }
 
-.cart-list {
-  overflow-x: scroll; }
 
 .table {
   min-width: 1000px !important;
@@ -8044,7 +8043,7 @@ h1, h2, h3, h4, h5,
       width: 20%; }
     .table tbody tr td.image-prod .img {
       display: block;
-      width: 200px;
+      width: 250px;
       height: 200px;
       margin: 0 auto; }
     .table tbody tr td.product-name {
@@ -9087,3 +9086,7 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
+
+/* стили для входа/регистрации */

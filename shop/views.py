@@ -14,13 +14,14 @@ class ProductsListView(ListView):
     model = Product
     template_name = 'shop/shop.html'
 
+
 class ProductsDetailView(DetailView):
-     model = Product
-     template_name = 'shop/shop-details.html'
+    model = Product
+    template_name = 'shop/shop-details.html'
 
 
-
-@login_required(login_url=reverse_lazy('register'))  # работу функции add_item_to_cart() может вызвать только залогиненный пользователь
+@login_required(login_url=reverse_lazy(
+    'register'))  # работу функции add_item_to_cart() может вызвать только залогиненный пользователь
 def add_item_to_cart(request, pk):
     if request.method == 'POST':
         quantity_form = AddQuantityForm(request.POST)
@@ -28,16 +29,18 @@ def add_item_to_cart(request, pk):
             quantity = quantity_form.cleaned_data['quantity']
             if quantity:
                 cart = Order.get_cart(request.user)
-                # product = Product.objects.get(pk=pk)
+
                 product = get_object_or_404(Product, pk=pk)
                 cart.orderitem_set.create(product=product,
                                           quantity=quantity,
                                           price=product.price)
+
                 cart.save()
                 # return redirect('cart_view')
         else:
             pass
     return redirect('shop')
+
 
 @login_required(login_url=reverse_lazy('register'))
 def cart_view(request):
@@ -49,13 +52,16 @@ def cart_view(request):
     }
     return render(request, 'shop/cart.html', context)
 
+
 def home_page(request):
     products = Product.objects.all()
     images = Product_image.objects.all()
-    context = {'products':products, 'images':images}
+    context = {'products': products, 'images': images}
     return render(request, 'product/home.html', context)
 
-@method_decorator(login_required, name='dispatch')  # работу класса CartDeleteIem может вызвать только залогиненный пользователь
+
+@method_decorator(login_required,
+                  name='dispatch')  # работу класса CartDeleteIem может вызвать только залогиненный пользователь
 class CartDeleteIem(DeleteView):
     model = OrderItem
     template_name = 'shop/cart.html'

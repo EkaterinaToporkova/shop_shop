@@ -1,53 +1,53 @@
 {% extends 'base-page.html' %}
 {% load static %}
 {% block title  %}
-    Регистрация | Template
+Регистрация | Template
 {% endblock title %}
 {% block container  %}
 <!-- Register In Section Begin -->
-<div class="signin">
-    <div class="signin__warp">
-        <div class="signin__content">
-            <div class="signin__logo">
-                <a href="/"><img src="{% static '/img/siign-in-logo.png' %}" alt=""></a>
-            </div>
-            <p>Для выхода в главное меню нажмите на FoodeiBlog</p>
-            <div class="signin__form">
-                <ul class="nav justify-content-center" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#tabs-1" role="tab" aria-selected="false">
-                            Регистрация
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-pane" id="tabs-1" role="tabpanel">
-                    <div class="signin__form__text">
-                        <p>зарегистрироваться с помощью соцсетей:</p>
-                        <div class="signin__form__signup__social">
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="google"><i class="fa fa-google"></i></a>
-                        </div>
-                        <div class="divide">или</div>
-                        <form method="post" action="{% url 'register' %}">
-                            {% csrf_token %}
-                            {% for field in user_form %}
-                            <span style="color: red"> {{ field.errors }}</span>
-                            {{ field.label_tag }}
-                            {{ field }}
-                            {% endfor %}
-                            <label for="sign-agree-check">
-                                Я согласен с правилами и условиями
-                                <input type="checkbox" id="sign-agree-check">
-                                <span class="checkmark"></span>
-                            </label>
-                            <button type="submit" class="site-btn">Зарегистрироваться</button>
-                        </form>
-                    </div>
-                </div>
+
+<div class="hero-wrap hero-bread" style="background-image: url('{% static 'img/bg-66.jpg' %}');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Регистрация</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Главная</a></span> <span>Регистрация</span>
+                </p>
             </div>
         </div>
     </div>
 </div>
+
+<section class="ftco-section contact-section bg-light">
+    <div class="container">
+        <div class="row block-9">
+            <div class="col-md-6 order-md-last d-flex">
+                <form method="post" action="{% url 'register' %}" class="bg-white p-5 contact-form">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {% for field in user_form %}
+                        <span style="color: red"> {{ field.errors }}</span>
+                        <div class="form-group">
+                        {{ field.label_tag }}
+                        </div>
+                        <div class="form-group">
+                        {{ field }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn btn-primary py-3 px-5">Зарегистрироваться</button>
+                </form>
+
+            </div>
+
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url('{% static 'img/register.jpg' %}');">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- Register In Section End -->
+
 {% endblock container %}

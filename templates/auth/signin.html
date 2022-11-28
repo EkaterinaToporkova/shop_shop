@@ -4,33 +4,73 @@
     Вход | Template
 {% endblock title %}
 {% block container  %}
-<!-- Sign In Section Begin -->
-<div class="signin">
-    <div class="signin__warp">
-        <div class="signin__content">
-            <div class="signin__logo">
-                <a href="/"><img src="{% static '/img/siign-in-logo.png' %}" alt=""></a>
+
+<div class="hero-wrap hero-bread" style="background-image: url('{% static 'img/bg-66.jpg' %}');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Вход</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Главная</a></span> <span>Вход</span></p>
             </div>
-            <p>Для выхода в главное меню нажмите на FoodeiBlog</p>
-            <div class="signin__form">
-                <ul class="nav justify-content-center" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">
-                            Вход
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tabs-2" role="tabpanel">
+        </div>
+    </div>
+</div>
+<!-- Sign In Section Begin -->
+
+<section class="ftco-section contact-section bg-light">
+    <div class="container">
+        <div class="row block-9">
+            <div class="col-md-6 order-md-last d-flex">
+                <form method="post" action="{% url 'signin'%}" class="bg-white p-5 contact-form">
+                     <div class="form-group">
+                        {% csrf_token %}
+                        <div class="form-group">
+                        <label class="form-label" for="id_username">Username:</label>
+                        <input type="text" placeholder="User Name*" id="id_username" name="username">
+                        </div>
+                        <div class="form-group">
+                        <label class="form-label" for="id_password">Password:</label>
+                        <input type="password" placeholder="Password" id="id_password" name="password">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary py-3 px-5">Войти</button>
+                    <div class="row">
                         <div class="signin__form__text">
-                            <p>войти с помощью соцсетей:</p>
-                            <div class="signin__form__signup__social">
-                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="google"><i class="fa fa-google"></i></a>
-                            </div>
-                            <div class="divide">или</div>
-                            <form method="post" action="{% url 'signin'%}">
+                            <p align="center">{{ attention }}</p>
+                        </div>
+                    </div>
+                    {% for error in login_form.non_field_errors %}
+                    <div class="row">
+                        <div class="signin__form__text">
+                            <p>{{ error }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </form>
+            </div>
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url('{% static 'img/register.jpg' %}');">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Sign In Section End -->
+{% endblock container %}
+
+
+<section class="ftco-section ftco-cart">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="cart-list">
+                    <table class="table">
+                        <tbody>
+                        <tr class="text-center">
+
+                            <td class="price">
+                                <form method="post" action="{% url 'signin'%}">
                                 {% csrf_token %}
                                 <label class="form-label" for="id_username">Username:</label>
                                 <input type="text" placeholder="User Name*" id="id_username" name="username">
@@ -49,13 +89,13 @@
                                     </div>
                                 </div>
                                 {% endfor %}
-                            </form>
-                        </div>
-                    </div>
+                                </form>
+                            </td>
+                        </tr><!-- END TR-->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Sign In Section End -->
-{% endblock container %}
+</section>

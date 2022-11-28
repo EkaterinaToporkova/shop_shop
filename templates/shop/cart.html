@@ -42,6 +42,7 @@
                                 {% csrf_token %}
                                 <td class="product-remove"><a href="{% url 'cart_delete_item' item.pk %}"><span class="ion-ios-close"></span></a></td>
                             </form>
+
                             <td class="image-prod">
                                 <div class="img" style="background-image:url('{{ item.product.image_url.url }}');"></div>
                             </td>
@@ -54,6 +55,7 @@
 
                             <td class="price">{{ item.quantity }}</td>
                             <td class="total">{{ item.amount }} руб.</td>
+
                         </tr><!-- END TR-->
                         {% endfor %}
                         </tbody>

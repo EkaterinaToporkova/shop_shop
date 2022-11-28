@@ -83,7 +83,7 @@ class Order(models.Model):
         ordering = ['pk']
 
     def __str__(self):
-        return f'name: {self.user}, amount: {self.amount}, status: {self.status}'
+        return f'name: {self.user}, amount: {self.amount}, status: {self.status}'  # отображение в БД
 
     @staticmethod
     def get_cart(user: User):
@@ -135,7 +135,7 @@ class OrderItem(models.Model):
         ordering = ['pk']
 
     def __str__(self):
-        return f'product: {self.product}, price: {self.price}'
+        return f'product: {self.product}, price: {self.price}'  # отображение в БД
 
     @property
     def amount(self):
