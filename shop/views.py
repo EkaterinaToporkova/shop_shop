@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -23,23 +24,29 @@ class ProductsDetailView(DetailView):
 @login_required(login_url=reverse_lazy(
     'register'))  # работу функции add_item_to_cart() может вызвать только залогиненный пользователь
 def add_item_to_cart(request, pk):
-    if request.method == 'POST':
         quantity_form = AddQuantityForm(request.POST)
-        if quantity_form.is_valid():
+        if quantity_form.is_valid():  # если форма прошла валидацию, то создаётся объект quantity
             quantity = quantity_form.cleaned_data['quantity']
             if quantity:
-                cart = Order.get_cart(request.user)
+                cart = Order.get_cart(request.user)  # метод get_cart способен обеспечить нужной корзиной - объектом cart
 
                 product = get_object_or_404(Product, pk=pk)
-                cart.orderitem_set.create(product=product,
-                                          quantity=quantity,
-                                          price=product.price)
+
+                if OrderItem.objects.filter(product=product).exists():
+                    order_items = OrderItem.objects.filter(product=product)
+                    for it in order_items:
+                        it.quantity += 1
+                        it.save()
+                else:
+                    cart.orderitem_set.create(product=product,
+                                              quantity=quantity,
+                                              price=product.price)  # с помощью cart.orderitem_set.create() создаём новый объект модели OrderItem
 
                 cart.save()
                 # return redirect('cart_view')
         else:
             pass
-    return redirect('shop')
+        return redirect('shop')
 
 
 @login_required(login_url=reverse_lazy('register'))

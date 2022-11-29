@@ -36,7 +36,7 @@ class TestDataBase(TestCase):
         self.assertGreater(OrderItem.objects.all().count(), 0)
         self.assertGreater(Payment.objects.all().count(), 0)
 
-    # подчитываем корзины конкретного пользователя
+    # подчитываем корзины конкретного пользователя (больше 1 корзины у 1 пользователы быть не может)
     def find_cart_number(self):
         cart_number = Order.objects.filter(user=self.user,
                                            status=Order.STATUS_CART
@@ -58,7 +58,7 @@ class TestDataBase(TestCase):
         # 2. Корзина только что создана
         Order.get_cart(self.user)
         self.assertEqual(self.find_cart_number(), 1)
-        # 3. Проверить, что получена так корзина, которая создана, а не создалась новая
+        # 3. Проверить, что получена та корзина, которая создана, а не создалась новая
         Order.get_cart(self.user)
         self.assertEqual(self.find_cart_number(), 1)
 
@@ -80,7 +80,7 @@ class TestDataBase(TestCase):
 
         """
 
-        # 1. Получаем сумму до какого-либо изменения
+        # 1. Получаем сумму до всех изменения
         cart = Order.get_cart(self.user)
         self.assertEqual(cart.amount, Decimal(0))
 

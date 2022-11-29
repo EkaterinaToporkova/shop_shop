@@ -82,8 +82,10 @@ class Order(models.Model):
     class Meta:
         ordering = ['pk']
 
+
     def __str__(self):
         return f'name: {self.user}, amount: {self.amount}, status: {self.status}'  # отображение в БД
+
 
     @staticmethod
     def get_cart(user: User):
@@ -122,17 +124,20 @@ class Order(models.Model):
         return amount or Decimal(0)
 
 
-# каждый элемент заказа
+# в этом классе все элементЫ, которые лежат в Корзине + перерасчет суммы всего заказа
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)  # связь с заказом
     product = models.ForeignKey(Product,
                                 on_delete=models.PROTECT)  # связь с Продуктом, удалить продукт просто так нельзя
-    quantity = models.PositiveIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=1)  # количество, вводим вручную
     price = models.DecimalField(max_digits=20, decimal_places=2)
     discount = models.DecimalField(max_digits=20, decimal_places=2, default=0)  # возможная скидка, по умолчанию 0
 
     class Meta:
         ordering = ['pk']
+        # constraints = [
+        #     models.UniqueConstraint(fields=['order', 'product'], name='unique')
+        # ]
 
     def __str__(self):
         return f'product: {self.product}, price: {self.price}'  # отображение в БД
