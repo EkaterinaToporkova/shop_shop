@@ -36,7 +36,7 @@ class TestDataBase(TestCase):
         self.assertGreater(OrderItem.objects.all().count(), 0)
         self.assertGreater(Payment.objects.all().count(), 0)
 
-    # подчитываем корзины конкретного пользователя (больше 1 корзины у 1 пользователы быть не может)
+    # подчитываем корзины конкретного пользователя (больше 1 корзины у 1 пользователя быть не может)
     def find_cart_number(self):
         cart_number = Order.objects.filter(user=self.user,
                                            status=Order.STATUS_CART
@@ -67,9 +67,9 @@ class TestDataBase(TestCase):
         1. Получаем корзину и искусственно состариваем ее
         """
         cart = Order.get_cart(self.user)
-        cart.creation_time = timezone.datetime(2000, 1, 1, tzinfo=zoneinfo.ZoneInfo('UTC'))
+        cart.creation_time = timezone.datetime(2000, 1, 1, tzinfo=zoneinfo.ZoneInfo('UTC'))  # эта корзина удаляется, т.к. она старше 7 лет
         cart.save()
-        cart = Order.get_cart(self.user)
+        cart = Order.get_cart(self.user)  # получаем новую корзину (пустую)
         self.assertEqual((timezone.now() - cart.creation_time).days, 0)
 
     def test_recalculate_order_amount_after_changing_ordertime(self):

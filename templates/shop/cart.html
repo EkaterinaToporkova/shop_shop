@@ -40,9 +40,10 @@
                         <tr class="text-center">
                             <form method="post" action="{% url 'cart_delete_item' item.pk %}">
                                 {% csrf_token %}
-                                <td class="product-remove"><a href="{% url 'cart_delete_item' item.pk %}"><span class="ion-ios-close"></span></a></td>
+                                <td class="product-remove">
+                                    <button><span class="ion-ios-close"></span></button>
+                                </td>
                             </form>
-
                             <td class="image-prod">
                                 <div class="img" style="background-image:url('{{ item.product.image_url.url }}');"></div>
                             </td>
@@ -50,10 +51,8 @@
                             <td class="product-name">
                                 <h3>{{ item.product.name }}</h3>
                             </td>
-
                             <td class="price">{{ item.price }} руб.</td>
-
-                            <td class="price">{{ item.quantity }}</td>
+                            <td class="quantity">{{ item.quantity }}</td>
                             <td class="total">{{ item.amount }} руб.</td>
 
                         </tr><!-- END TR-->
@@ -82,10 +81,10 @@
                     <hr>
                     <p class="d-flex total-price">
                         <span>Total</span>
-                        <span>{{ cart.amount}}</span>
+                        <span>{{ cart.amount }}</span>
                     </p>
                 </div>
-                <p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Оплатить</a>
+                <p class="text-center"><a href="{% url 'make_order' %}" class="btn btn-primary py-3 px-4">Оплатить</a>
                 </p>
             </div>
         </div>

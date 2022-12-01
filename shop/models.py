@@ -23,8 +23,7 @@ class Product(models.Model):
         ordering = ['pk']
 
     def __str__(self):
-        return f'name: {self.name}, price: {self.price},  image_url: {self. image_url}'
-
+        return f'name: {self.name}, price: {self.price},  image_url: {self.image_url}'
 
 
 class Product_image(models.Model):
@@ -33,6 +32,7 @@ class Product_image(models.Model):
 
     def __str__(self):
         return f'{self.product.name} image'
+
 
 # @property
 # def sorted_image_set(self):
@@ -82,31 +82,30 @@ class Order(models.Model):
     class Meta:
         ordering = ['pk']
 
-
     def __str__(self):
         return f'name: {self.user}, amount: {self.amount}, status: {self.status}'  # отображение в БД
 
-
     @staticmethod
-    def get_cart(user: User):
+    def get_cart(user: User):  # корзина до каких-либо изменений
         cart = Order.objects.filter(user=user,
                                     status=Order.STATUS_CART
                                     ).first()
         if cart and (timezone.now() - cart.creation_time).days > 7:
-            cart.delete()
+            cart.delete()  # корзина удаляется, если ей больше 7 дней
             cart = None
 
-        if not cart:
+        if not cart:  # если корзины не существует, то она создается
             cart = Order.objects.create(user=user,
                                         status=Order.STATUS_CART,
                                         amount=0
                                         )
         return cart
 
-    def get_amount(self):
+    def get_amount(
+            self):  # общая сумма неоплаченных заказов, которая вычисляется из маленьких сумм каждого элемента в OrderItem TODO: проблема в получении полной суммы заказа, после обновления количества
         amount = Decimal(0)
-        for item in self.orderitem_set.all():
-            amount += item.amount
+        for item in self.orderitem_set.all():  # находим сумму каждого элемента Order_item, который принадлежит заказу
+            amount += item.amount  # увеличиваем сумму на значение amount, которое нашли в def amount() в OrderItem каждого элемента
         return amount
 
     def make_order(self):
@@ -140,10 +139,10 @@ class OrderItem(models.Model):
         # ]
 
     def __str__(self):
-        return f'product: {self.product}, price: {self.price}'  # отображение в БД
+        return f'product: {self.product}, amount: {self.amount}'  # отображение в БД
 
     @property
-    def amount(self):
+    def amount(self):  # перерасчет amount элемента с учетом количества и скидки
         return self.quantity * (self.price - self.discount)
 
 
@@ -161,11 +160,11 @@ def auto_payment_unpaid_orders(user: User):  # автоплатеж неопла
                                amount=-order.amount)
 
 
-@receiver(post_save, sender=OrderItem)  # сигнал, соответствующий сохранению объекта в базе данных
-def recalculate_order_amount_after_save(sender, instance, **kwargs):
-    order = instance.order
-    order.amount = order.get_amount()
-    order.save()
+@receiver(post_save, sender=OrderItem)  # после сохранения OrderItem, идет функция recalculate_order_amount_after_save()
+def recalculate_order_amount_after_save(sender, instance, **kwargs):  # instance - подает сигнал о сохранении
+    order = instance.order  # получим заказ, к которому был послан сигнал о сохранении
+    order.amount = order.get_amount()  # получаем сумму для этого заказа
+    order.save()  # сохраняем, чтобы отразить изменение в базе данных
 
 
 @receiver(post_delete, sender=OrderItem)  # сигнал, соответствующий удалению объекта из базы данных
