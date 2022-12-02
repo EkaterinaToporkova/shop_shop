@@ -102,7 +102,7 @@ class Order(models.Model):
         return cart
 
     def get_amount(
-            self):  # общая сумма неоплаченных заказов, которая вычисляется из маленьких сумм каждого элемента в OrderItem TODO: проблема в получении полной суммы заказа, после обновления количества
+            self):  # общая сумма неоплаченных заказов, которая вычисляется из маленьких сумм каждого элемента в OrderItem
         amount = Decimal(0)
         for item in self.orderitem_set.all():  # находим сумму каждого элемента Order_item, который принадлежит заказу
             amount += item.amount  # увеличиваем сумму на значение amount, которое нашли в def amount() в OrderItem каждого элемента
@@ -178,3 +178,19 @@ def recalculate_order_amount_after_delete(sender, instance, **kwargs):
 def auto_payment(sender, instance, **kwargs):
     user = instance.user
     auto_payment_unpaid_orders(user)
+
+class Recipe(models.Model):
+    name = models.CharField(max_length=255, verbose_name='recipe_name')
+    description = models.CharField(max_length=1000, verbose_name='description')
+    product_list = models.CharField(max_length=1000, verbose_name='product_list')
+    image_recipe = models.ImageField(upload_to='image_recipe')
+    recipe_note = models.TextField(blank=True, null=True)
+
+    class Meta:  # все элементы отображаются по дате создания
+        ordering = ['pk']
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+

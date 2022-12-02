@@ -70,7 +70,7 @@ def home_page(request):
     products = Product.objects.all()
     images = Product_image.objects.all()
     context = {'products': products, 'images': images}
-    return render(request, 'product/home.html', context)
+    return render(request, 'product/home.html', context)  #TODO разобраться, почему тут home.html
 
 
 @method_decorator(login_required,
@@ -84,6 +84,7 @@ class CartDeleteItem(DeleteView):
         qs = super().get_queryset()
         qs.filter(order__user=self.request.user)
         return qs
+
 
 @login_required(login_url=reverse_lazy('signin'))
 def make_order(request):

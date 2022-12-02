@@ -1,0 +1,42 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title  %}
+Первые блюда| Template
+{% endblock title %}
+
+{% block container  %}
+<div class="hero-wrap hero-bread" style="background-image: url('{% static 'img/bg-66.jpg' %}');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Супы</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Рецепты</a></span>
+                    <span>Супы</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-section bg-light">
+    <div class="container-fluid">
+        <div class="row">
+            {% for recipe in object_list %}
+            <div class="col-sm col-md-6 col-lg-3 ftco-animate">
+                <div class="product">
+                    <a href="#" class="img-prod"><img class="img-fluid" src="{{ recipe.image_recipe.url }}"
+                                                      alt="Colorlib Template">
+                    </a>
+                    <div class="text py-3 px-3">
+                        <h3 style="font-family:'Lato', Arial, sans-serif"><a href="{% url 'recipes_details'%}">{{ recipe.name }}</a></h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock container  %}
