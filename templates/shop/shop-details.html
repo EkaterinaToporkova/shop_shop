@@ -30,19 +30,17 @@
                             <td class="image-prod">
                                 <div class="img" style="background-image:url('{{ product.image_url.url }}');"></div>
                             </td>
-
                             <td class="product-name">
                                 <h3 style="color:#17a2b8">{{ product.name }}</h3>
                                 <h3>{{ product.note }}</h3>
                             </td>
-
                             <td class="price">{{ product.price }} руб. / {{ product.unit }}</td>
-
                             <td>
                                 <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
                                     {% csrf_token %}
                                     <div class="categories__post__item__text">
-                                        <h6 style="font-family:'Lato', Arial, sans-serif"><label class="form-label" for="id_quantity">Количество:</label>
+                                        <h6 style="font-family:'Lato', Arial, sans-serif"><label class="form-label"
+                                                                                                 for="id_quantity">Количество:</label>
                                             <input type="number" name="quantity" value="1" min="1" required
                                                    id="id_quantity" style="width: 3em">
                                         </h6>
@@ -52,17 +50,13 @@
                                                 class="ion-ios-add ml-1"></i></span></a>
                                     </button>
                                 </form>
-
                                 <form action="{% url 'shop' %}">
 
                                     <button type="submit">
                                         <a href="#" class="add-to-cart"><span>Назад</span></a>
                                     </button>
                                 </form>
-
-
                             </td>
-
                         </tr><!-- END TR-->
                         </tbody>
                     </table>
@@ -73,55 +67,3 @@
 </section>
 
 {% endblock container  %}
-
-
-
-=====================================
-<link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}" type="text/css">
-<div class="page-heading products-heading header-text">
-    <section class="categories spad">
-        <div class="categories__post">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-16">
-                                <div class="categories__post__item">
-                                    <img src="{{ product.image_url.url }}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="sidebar__item">
-                            <div class="sidebar__about__item">
-                                <div class="sidebar__item__title">
-                                    <h6>{{ product.name }}</h6>
-                                    <p><h4 style="color: #fd7e14">{{ product.price }} р./{{ product.unit }}</h4></p>
-                                </div>
-                                <h5>{{ product.note }}</h5>
-                            </div>
-                            <div class="sidebar__item__title">
-                                <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
-                                    {% csrf_token %}
-                                    <div class="categories__post__item__text">
-                                        <h5><label class="form-label" for="id_quantity">Количество:</label>
-                                            <input type="number" name="quantity" value="1" min="1" required
-                                                   id="id_quantity" style="width: 2em">
-                                        </h5>
-                                    </div>
-                                    <button type="submit" class="site-btn">В корзину</button>
-                                </form>
-                            </div>
-                            <div class="sidebar__item__title">
-                                <form action="{% url 'shop' %}">
-                                    <button type="submit" class="site-btn">Назад</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>

@@ -180,6 +180,8 @@ def auto_payment(sender, instance, **kwargs):
     auto_payment_unpaid_orders(user)
 
 class Recipe(models.Model):
+    code = models.CharField(max_length=255,
+                            verbose_name='recipe_code', default=0)
     name = models.CharField(max_length=255, verbose_name='recipe_name')
     description = models.CharField(max_length=1000, verbose_name='description')
     product_list = models.CharField(max_length=1000, verbose_name='product_list')

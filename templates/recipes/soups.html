@@ -25,11 +25,11 @@
             {% for recipe in object_list %}
             <div class="col-sm col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="{{ recipe.image_recipe.url }}"
+                    <a href="{% url 'recipes_details' recipe.pk %}" class="img-prod"><img class="img-fluid" src="{{ recipe.image_recipe.url }}"
                                                       alt="Colorlib Template">
                     </a>
                     <div class="text py-3 px-3">
-                        <h3 style="font-family:'Lato', Arial, sans-serif"><a href="{% url 'recipes_details'%}">{{ recipe.name }}</a></h3>
+                        <h3 style="font-family:'Lato', Arial, sans-serif"><a href="{% url 'recipes_details' recipe.pk %}">{{ recipe.name }}</a></h3>
                     </div>
                 </div>
             </div>

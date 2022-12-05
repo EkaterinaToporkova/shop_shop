@@ -10,9 +10,9 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <h1 class="mb-0 bread">Детали рецепта</h1>
+                <h1 class="mb-0 bread">Рецепт "{{recipe.name}}"</h1>
                 <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Рецепты</a></span>
-                    <span>Детали рецепта</span></p>
+                    <span>Рецепт</span></p>
             </div>
         </div>
     </div>
@@ -31,15 +31,14 @@
             <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
                 <div class="heading-section-bold mb-5 mt-md-5">
                     <div class="ml-md-0">
-                        <h2 class="mb-4">Онлайн <br>Магазин <br> <span>Продуктов</span></h2>
+                        <h2 class="mb-4">Рецепт<br><span>{{recipe.name}}</span></h2>
                     </div>
                 </div>
                 <div class="pb-md-5">
-                    <p>Здесь вы сможете посмотреть рецепты различных блюд, а если у Вас нет дома необходимых продуктов,
-                        Вы сможете заказать их здесь же.
-                        У нас есть множество различных рецептов, которые собраны по категориям:</p>
+                    <p>{{recipe.description}}. Для этого нам понадобится:</p>
                     <ul>
-                        <li>Супы</li>
+
+                        <li>{{ recipe.product_list }}</li>
                         <li>Вторые блюда</li>
                         <li>Закуски</li>
                         <li>Изделия из теста</li>
