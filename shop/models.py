@@ -1,12 +1,11 @@
 from decimal import Decimal
-
 from django.contrib.auth.models import User
 from django.db import models, transaction
-
 from django.db.models import Sum
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.utils import timezone
+from multiselectfield import MultiSelectField
 
 
 # таблица Продукты
@@ -180,11 +179,18 @@ def auto_payment(sender, instance, **kwargs):
     auto_payment_unpaid_orders(user)
 
 class Recipe(models.Model):
+    # MY_CHOICES = ((1, 'Говядина - 500 г'),
+    #               (2,  'Свёкла - 1 шт'),
+    #               (3, 'Картофель - 2 шт'),
+    #               (4, 'Капуста белокочанная - 200 г'),
+    #               (5, 'Морковь - 1 шт'),
+    #               (6, 'Лук репчатый - 1 шт'))
     code = models.CharField(max_length=255,
                             verbose_name='recipe_code', default=0)
     name = models.CharField(max_length=255, verbose_name='recipe_name')
     description = models.CharField(max_length=1000, verbose_name='description')
-    product_list = models.CharField(max_length=1000, verbose_name='product_list')
+    product_list = models.ManyToManyField(Product)
+    # product_list = MultiSelectField(choices=MY_CHOICES, max_length=10000)
     image_recipe = models.ImageField(upload_to='image_recipe')
     recipe_note = models.TextField(blank=True, null=True)
 

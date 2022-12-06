@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+# from multiselectfield import MultiSelectField
 
 
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'shop',
     'crispy_forms',
     'recipe',
+    'multiselectfield',
     'bootstrap3',
 
 ]

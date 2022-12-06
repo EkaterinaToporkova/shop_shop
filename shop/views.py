@@ -91,3 +91,4 @@ def make_order(request):
     cart = Order.get_cart(request.user)
     cart.make_order()
     return redirect('shop')
+
