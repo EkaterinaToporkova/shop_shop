@@ -22,8 +22,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
-                 style="background-image: url('{% static 'img/girl.jpg' %}');">
-                <a href="https://vimeo.com/45830194"
+                 style="background-image: url('{{ recipe.image_thousand_on_thousand.url }}');">
+                <a href="{{ recipe.video_url }}"
                    class="icon popup-vimeo d-flex justify-content-center align-items-center">
                     <span class="icon-play"></span>
                 </a>
@@ -38,15 +38,12 @@
                     <p>{{recipe.description}} Для этого нам понадобится:</p>
                     <ul>
                         {% for value in recipe.product_list.all %}
-                        <li><a href="#">{{ value.name }}</a></li>
+                        <li><a href="{% url 'detail' value.code %}">{{ value.name }}</a></li>
                         {% endfor %}
-                    </ul>
 
-                    <p>На этом сайте можно подобрать рецепты для различных случаев: День Рождения, Новый Год или тихий
-                        ужин в кругу семьи.
-                        Если у Вас есть свои рецепты и вы хотите ими поделиться, то мы с радостью опубликуем их с
-                        указанием автора.
-                        Для этого можно написать в любую из соц.сетей, представленных ниже.</p>
+                    </ul>
+                    <p>Пошаговый рецепт</p>
+                    <p>{{ recipe.recipe_note|linebreaks }}</p>
                 </div>
             </div>
         </div>

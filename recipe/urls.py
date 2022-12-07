@@ -23,5 +23,4 @@ from recipe import views
 urlpatterns = [
     path('', views.RecipesListView.as_view(), name='soups'),
     path('recipes_details/<int:pk>/', views.RecipesDetailView.as_view(), name='recipes_details'),
-
 ]
