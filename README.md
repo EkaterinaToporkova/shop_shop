@@ -74,14 +74,32 @@ P. S. список таблиц будет расти.
 
 Так как сайт еще не был развернут на серевере прикладываю скрины.
 
-# Рецепты
+### Рецепты
 ![Рецепты](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-35-53.jpg)
 
+### Одна из категорий
+![Одна из категорий](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-36-51.jpg)
 
+### детализация рецепта
+![детализация рецепта](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-37-01.jpg)
 
+### видео-рецепта
+![видео-рецепта](https://github.com/EkaterinaToporkova/shop_shop/blob/main/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.jpg)
 
+### видео-рецепта
+![видео-рецепта](https://github.com/EkaterinaToporkova/shop_shop/blob/main/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.jpg)
 
+### детализация продукта (можно перейти из страницы с рецептами и с шапки)
+![детализация продукта](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-38-36.jpg)
 
+### список продуктов
+![список продуктов](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-39-21.jpg)
+
+### вход
+![вход](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-41-15.jpg)
+
+### регистрация
+![вход](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-41-48.jpg)
 
 
 
