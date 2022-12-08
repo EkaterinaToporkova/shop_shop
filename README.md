@@ -86,9 +86,6 @@ P. S. список таблиц будет расти.
 ### видео-рецепта
 ![видео-рецепта](https://github.com/EkaterinaToporkova/shop_shop/blob/main/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.jpg)
 
-### видео-рецепта
-![видео-рецепта](https://github.com/EkaterinaToporkova/shop_shop/blob/main/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.jpg)
-
 ### детализация продукта (можно перейти из страницы с рецептами и с шапки)
 ![детализация продукта](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-38-36.jpg)
 
@@ -100,13 +97,3 @@ P. S. список таблиц будет расти.
 
 ### регистрация
 ![вход](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-41-48.jpg)
-
-
-
-
-
-
-
-
-
-
