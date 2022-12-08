@@ -29,7 +29,7 @@ ____
 - Контакты
 - Вход/Регистрация/Выход (в случае, если пользователь вошел, появляется изображение человека)
 
-![](C:/Users/GB-5/Desktop/шапка.jpg)
+![file](https://github.com/EkaterinaToporkova/shop_shop/blob/main/header.jpg)
 _____________
 
 
