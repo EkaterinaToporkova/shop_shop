@@ -75,7 +75,7 @@ P. S. список таблиц будет расти.
 Так как сайт еще не был развернут на серевере прикладываю скрины.
 
 # Рецепты
-[Рецепты](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-35-53.jpg)
+![Рецепты](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-35-53.jpg)
 
 
 
