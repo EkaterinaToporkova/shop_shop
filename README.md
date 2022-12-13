@@ -98,5 +98,5 @@ P. S. список таблиц будет расти.
 ### регистрация
 ![вход](https://github.com/EkaterinaToporkova/shop_shop/blob/main/photo_2022-12-08_10-41-48.jpg)
 
-### корщина
+### корзина
 ![вход](https://github.com/EkaterinaToporkova/shop_shop/blob/main/cart.jpg)
