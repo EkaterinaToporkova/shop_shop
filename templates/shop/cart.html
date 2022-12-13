@@ -32,6 +32,7 @@
                             <th>Продукты</th>
                             <th>Цена</th>
                             <th>Количество</th>
+                            <th>Скидка</th>
                             <th>Итого</th>
                         </tr>
                         </thead>
@@ -51,8 +52,9 @@
                             <td class="product-name">
                                 <h3>{{ item.product.name }}</h3>
                             </td>
-                            <td class="price">{{ item.price }} руб.</td>
+                            <td class="price">{{ item.price }} р./{{ item.product.unit }}</td>
                             <td class="quantity">{{ item.quantity }}</td>
+                            <td class="total">{{ item.discount }} руб.</td>
                             <td class="total">{{ item.amount }} руб.</td>
 
                         </tr><!-- END TR-->
@@ -67,20 +69,12 @@
                 <div class="cart-total mb-3">
                     <h3>Итого</h3>
                     <p class="d-flex">
-                        <span>Subtotal</span>
-                        <span>$20.60</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Delivery</span>
-                        <span>$0.00</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Discount</span>
-                        <span>$3.00</span>
+                        <span>Доставка</span>
+                        <span>00.00 руб.</span>
                     </p>
                     <hr>
                     <p class="d-flex total-price">
-                        <span>Total</span>
+                        <span>К оплате</span>
                         <span>{{ cart.amount }}</span>
                     </p>
                 </div>

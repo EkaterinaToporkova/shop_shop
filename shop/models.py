@@ -7,7 +7,6 @@ from django.dispatch import receiver
 from django.utils import timezone
 
 
-
 # таблица Продукты
 class Product(models.Model):
     name = models.CharField(max_length=255, verbose_name='product_name')
@@ -178,6 +177,7 @@ def auto_payment(sender, instance, **kwargs):
     user = instance.user
     auto_payment_unpaid_orders(user)
 
+
 class Recipe(models.Model):
     code = models.CharField(max_length=255,
                             verbose_name='recipe_code', default=0)
@@ -194,6 +194,3 @@ class Recipe(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-
-
-

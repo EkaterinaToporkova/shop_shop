@@ -50,6 +50,7 @@ def add_item_to_cart(request, pk):
             pass
     return redirect(request.META['HTTP_REFERER'])
 
+
 # Из объекта cart в шаблоне будут извлекаться только данные, относящиеся к самой корзине (в нашем случае - только сумма заказа). Данные по каждой позиции заказа item мы получим результате цикла по объекту items:
 @login_required(login_url=reverse_lazy('signin'))
 def cart_view(request):
@@ -85,5 +86,18 @@ class CartDeleteItem(DeleteView):
 @login_required(login_url=reverse_lazy('signin'))
 def make_order(request):
     cart = Order.get_cart(request.user)
-    cart.make_order()
-    return redirect('shop')
+    # cart.make_order()
+    return redirect('checkout')
+
+#TODO: тут будет функция, которая переводит платеж в статус "Ожидание платежа"
+
+
+@login_required(login_url=reverse_lazy('signin'))
+def checkout_view(request):
+    cart = Order.get_cart(request.user)
+    items = cart.orderitem_set.all()
+    context = {
+        'cart': cart,
+        'items': items
+    }
+    return render(request, 'shop/checkout.html', context)
