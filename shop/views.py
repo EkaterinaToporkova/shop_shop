@@ -1,7 +1,5 @@
 from django.contrib.auth.decorators import login_required
 
-from django.http import HttpResponseRedirect
-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
@@ -40,9 +38,11 @@ def add_item_to_cart(request, pk):
                         it.save()
                         cart.save()
                 else:
+                    # с помощью cart.orderitem_set.create() создаём
+                    # новый объект модели OrderItem
                     cart.orderitem_set.create(product=product,
                                               quantity=quantity,
-                                              price=product.price)  # с помощью cart.orderitem_set.create() создаём новый объект модели OrderItem
+                                              price=product.price)
 
                 cart.save()  # фиксируем связь этого объекта с корзиной заказа
                 # return redirect('cart_view')
@@ -51,7 +51,9 @@ def add_item_to_cart(request, pk):
     return redirect(request.META['HTTP_REFERER'])
 
 
-# Из объекта cart в шаблоне будут извлекаться только данные, относящиеся к самой корзине (в нашем случае - только сумма заказа). Данные по каждой позиции заказа item мы получим результате цикла по объекту items:
+# Из объекта cart в шаблоне будут извлекаться только данные,
+# относящиеся к самой корзине (в нашем случае - только сумма заказа).
+# Данные по каждой позиции заказа item мы получим результате цикла по объекту items:
 @login_required(login_url=reverse_lazy('signin'))
 def cart_view(request):
     cart = Order.get_cart(request.user)
@@ -85,11 +87,12 @@ class CartDeleteItem(DeleteView):
 
 @login_required(login_url=reverse_lazy('signin'))
 def make_order(request):
-    cart = Order.get_cart(request.user)
-    # cart.make_order()
+    # cart = Order.get_cart(request.user)
+    # # cart.make_order()
     return redirect('checkout')
 
-#TODO: тут будет функция, которая переводит платеж в статус "Ожидание платежа"
+
+# TODO: тут будет функция, которая переводит платеж в статус "Ожидание платежа"
 
 
 @login_required(login_url=reverse_lazy('signin'))

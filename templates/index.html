@@ -2,154 +2,165 @@
 {% load static %}
 
 {% block title  %}
-    Магазин ингредиентов
+Магазин ингредиентов
 {% endblock title %}
 
 {% block container  %}
 
 
 <div class="hero-wrap hero-bread" style="background-image: url('{% static 'img/bg-66.jpg' %}');">
-      <div class="container">
+    <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-0 bread">Blog</h1>
-          </div>
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Blog</h1>
+            </div>
         </div>
-      </div>
     </div>
-
+</div>
 <section class="ftco-section">
-  <div class="container">
-    <div class="row d-flex">
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('{% static '/img/categories/categ_1.jpg' %}');">
-          </a>
-          <div class="text mt-3 d-block pl-md-5">
-            <h3 class="heading mt-3"><a href="{% url 'soups' %}">Первые блюда - жидкие блюда на основе воды</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">23 ноября, 2022</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('{% static '/img/categories/categ_1.jpg' %}');">
+                    </a>
+                    <div class="text mt-3 d-block pl-md-5">
+                        <h3 class="heading mt-3"><a href="{% url 'soups' %}">Первые блюда - жидкие блюда на основе
+                            воды</a></h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">23 ноября, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('{% static '/img/categories/categ_2.jpg' %}');">
-          </a>
-          <div class="text mt-3 d-block pl-md-5">
-            <h3 class="heading mt-3"><a href="#">Вкусные рецепты вторых блюд бесконечно разнообразны</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">23 ноября, 2022</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('{% static '/img/categories/categ_2.jpg' %}');">
+                    </a>
+                    <div class="text mt-3 d-block pl-md-5">
+                        <h3 class="heading mt-3"><a href="#">Вкусные рецепты вторых блюд бесконечно разнообразны</a>
+                        </h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">23 ноября, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('{% static '/img/categories/categ_3.jpg' %}');">
-          </a>
-          <div class="text mt-3 d-block pl-md-5">
-            <h3 class="heading mt-3"><a href="#">Напитки - одна из самых востребованных тем</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">23 ноября, 2022</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('{% static '/img/categories/categ_3.jpg' %}');">
+                    </a>
+                    <div class="text mt-3 d-block pl-md-5">
+                        <h3 class="heading mt-3"><a href="#">Напитки - одна из самых востребованных тем</a></h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">23 ноября, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('{% static '/img/categories/categ_4.jpg' %}');">
-          </a>
-          <div class="text mt-3 d-block d-block pl-md-5">
-            <h3 class="heading mt-3"><a href="#">Закуски – тип блюд, которые подаются на стол перед основными блюдами</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">23 ноября, 2022</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('{% static '/img/categories/categ_4.jpg' %}');">
+                    </a>
+                    <div class="text mt-3 d-block d-block pl-md-5">
+                        <h3 class="heading mt-3"><a href="#">Закуски – тип блюд, которые подаются на стол перед
+                            основными блюдами</a></h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">23 ноября, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('{% static '/img/categories/categ_5.jpg' %}');">
-          </a>
-          <div class="text mt-3 d-block pl-md-5">
-            <h3 class="heading mt-3"><a href="#">Пироги и печенья, блины, пончики, вареники и другое</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">23 ноября, 2022</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('{% static '/img/categories/categ_5.jpg' %}');">
+                    </a>
+                    <div class="text mt-3 d-block pl-md-5">
+                        <h3 class="heading mt-3"><a href="#">Пироги и печенья, блины, пончики, вареники и другое</a>
+                        </h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">23 ноября, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('{% static '/img/categories/categ_6.jpg' %}');">
-          </a>
-          <div class="text mt-3 d-block pl-md-5">
-            <h3 class="heading mt-3"><a href="#">Соусы помогут вам «оживить» даже самые заурядные продукты и блюда</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">23 ноября, 2022</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20"
+                       style="background-image: url('{% static '/img/categories/categ_6.jpg' %}');">
+                    </a>
+                    <div class="text mt-3 d-block pl-md-5">
+                        <h3 class="heading mt-3"><a href="#">Соусы помогут вам «оживить» даже самые заурядные продукты и
+                            блюда</a></h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">23 ноября, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
- <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url('{% static 'img/hero/soup.jpg' %}');">
+<section class="ftco-section ftco-counter img" id="section-counter"
+         style="background-image: url('{% static 'img/hero/soup.jpg' %}');">
 
     <div class="container">
         <div class="row justify-content-center py-5">
             <div class="col-md-10">
                 <div class="row">
-              <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                <div class="block-18 text-center">
-                  <div class="text">
-                    <strong class="number" data-number="10000">0</strong>
-                    <span>Happy Customers</span>
-                  </div>
+                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="10000">0</strong>
+                                <span>Happy Customers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="100">0</strong>
+                                <span>Branches</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="1000">0</strong>
+                                <span>Partner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="100">0</strong>
+                                <span>Awards</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                <div class="block-18 text-center">
-                  <div class="text">
-                    <strong class="number" data-number="100">0</strong>
-                    <span>Branches</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                <div class="block-18 text-center">
-                  <div class="text">
-                    <strong class="number" data-number="1000">0</strong>
-                    <span>Partner</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                <div class="block-18 text-center">
-                  <div class="text">
-                    <strong class="number" data-number="100">0</strong>
-                    <span>Awards</span>
-                  </div>
-                </div>
-              </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 {% endblock container %}
